@@ -4,7 +4,6 @@ test_feedback.py
 Tests for the deterministic feedback generator.
 """
 
-import pytest
 from app.services.scoring.feedback_generator import generate_feedback
 from app.schemas.resume_schema import DetectedSections, SectionCounts
 from app.schemas.scoring_schema import ScoreBreakdown

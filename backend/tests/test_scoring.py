@@ -5,7 +5,6 @@ Tests for keyword matching, mode detection, title resolution, and score calculat
 All scores are deterministic — same input → same output, always.
 """
 
-import pytest
 from app.services.scoring.keyword_matcher import (
     detect_mode,
     resolve_title_to_role,

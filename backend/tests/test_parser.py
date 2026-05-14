@@ -5,7 +5,6 @@ Tests for text cleaning, section parsing, and section counting.
 All tests are deterministic — same input always produces same output.
 """
 
-import pytest
 from app.services.parser.text_cleaner import (
     clean_text,
     remove_control_characters,
