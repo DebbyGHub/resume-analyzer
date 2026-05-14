@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-surface-base text-text-primary font-sans;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-base;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-border rounded-full;
+  }
+}
+
+@layer components {
+  .score-ring {
+    stroke-dashoffset: calc(251.2 - (251.2 * var(--score)) / 100);
+    transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-glow {
+    box-shadow: 0 0 0 1px theme('colors.surface.border'),
+                0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .accent-glow {
+    box-shadow: 0 0 20px theme('colors.accent.glow'),
+                0 0 0 1px theme('colors.accent.DEFAULT');
+  }
+
+  .drag-active {
+    @apply border-accent bg-accent-glow;
+    box-shadow: 0 0 0 1px theme('colors.accent.DEFAULT'),
+                inset 0 0 40px theme('colors.accent.glow');
+  }
+}
