@@ -13,8 +13,8 @@ Every feedback item is:
 No AI. No LLMs. No randomness.
 """
 
-from app.schemas.resume_schema import DetectedSections, SectionCounts
-from app.schemas.scoring_schema import ScoreBreakdown
+from backend.app.schemas.resume_schema import DetectedSections, SectionCounts
+from backend.app.schemas.scoring_schema import ScoreBreakdown
 
 
 PRIORITY_HIGH   = "high"

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, UploadFile, File, Form
 from typing import Optional
 
-from app.schemas.scoring_schema import ResumeAnalysisResponse
-from app.services.analyzer.analyzer_service import run_analysis
+from backend.app.schemas.scoring_schema import ResumeAnalysisResponse
+from backend.app.services.analyzer.analyzer_service import run_analysis
 
 router = APIRouter()
 

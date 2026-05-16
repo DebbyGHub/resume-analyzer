@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional
-from app.schemas.resume_schema import DetectedSections, SectionCounts
+from backend.app.schemas.resume_schema import DetectedSections, SectionCounts
 
 
 class ScoreBreakdown(BaseModel):

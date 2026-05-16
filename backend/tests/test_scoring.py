@@ -5,16 +5,16 @@ Tests for keyword matching, mode detection, title resolution, and score calculat
 All scores are deterministic — same input → same output, always.
 """
 
-from app.services.scoring.keyword_matcher import (
+from backend.app.services.scoring.keyword_matcher import (
     detect_mode,
     resolve_title_to_role,
     get_keywords_for_role,
     extract_keywords_from_jd,
     match_keywords,
 )
-from app.services.scoring.section_scorer import score_sections, score_structure
-from app.services.scoring.score_calculator import calculate_score
-from app.schemas.resume_schema import DetectedSections, SectionCounts
+from backend.app.services.scoring.section_scorer import score_sections, score_structure
+from backend.app.services.scoring.score_calculator import calculate_score
+from backend.app.schemas.resume_schema import DetectedSections, SectionCounts
 
 
 # ──────────────────────────────────────────────────────────────
@@ -187,34 +187,34 @@ EMPTY_COUNTS = SectionCounts()
 
 class TestSectionScorer:
     def test_full_sections_high_score(self):
-        from app.services.scoring.section_scorer import score_sections
+        from backend.app.services.scoring.section_scorer import score_sections
         score = score_sections(FULL_SECTIONS, FULL_COUNTS)
         assert score >= 90
 
     def test_empty_sections_zero_score(self):
-        from app.services.scoring.section_scorer import score_sections
+        from backend.app.services.scoring.section_scorer import score_sections
         score = score_sections(EMPTY_SECTIONS, EMPTY_COUNTS)
         assert score == 0
 
     def test_score_bounded(self):
-        from app.services.scoring.section_scorer import score_sections
+        from backend.app.services.scoring.section_scorer import score_sections
         score = score_sections(FULL_SECTIONS, FULL_COUNTS)
         assert 0 <= score <= 100
 
 
 class TestStructureScorer:
     def test_full_structure_high_score(self):
-        from app.services.scoring.section_scorer import score_structure
+        from backend.app.services.scoring.section_scorer import score_structure
         score = score_structure(FULL_SECTIONS, FULL_COUNTS)
         assert score >= 80
 
     def test_empty_structure_zero(self):
-        from app.services.scoring.section_scorer import score_structure
+        from backend.app.services.scoring.section_scorer import score_structure
         score = score_structure(EMPTY_SECTIONS, EMPTY_COUNTS)
         assert score == 0
 
     def test_score_bounded(self):
-        from app.services.scoring.section_scorer import score_structure
+        from backend.app.services.scoring.section_scorer import score_structure
         score = score_structure(FULL_SECTIONS, FULL_COUNTS)
         assert 0 <= score <= 100
 

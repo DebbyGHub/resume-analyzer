@@ -3,12 +3,14 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.core.config import settings
-from app.core.database import engine, Base
-from app.api import health, resume
+from backend.app.core.config import settings
+from backend.app.core.database import engine, Base
+
+from backend.app.api import health, resume
+from backend.app.api.routes import interview
 
 # Import models so SQLAlchemy registers them before table creation
-import app.models.orm_models  # noqa: F401
+import backend.app.models.orm_models  # noqa: F401
 
 
 @asynccontextmanager
@@ -31,5 +33,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Existing routes
 app.include_router(health.router, prefix="/api")
 app.include_router(resume.router, prefix="/api/resume", tags=["resume"])
+
+# Interview evaluation routes
+app.include_router(
+    interview.router,
+    prefix="/api/interview",
+    tags=["interview"],
+)

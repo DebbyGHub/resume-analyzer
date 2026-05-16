@@ -15,8 +15,8 @@ No ML. No embeddings. Pure regex + heuristics.
 
 import re
 from typing import Optional
-from app.schemas.resume_schema import DetectedSections, SectionCounts
-from app.services.parser.text_cleaner import lowercase_for_matching
+from backend.app.schemas.resume_schema import DetectedSections, SectionCounts
+from backend.app.services.parser.text_cleaner import lowercase_for_matching
 
 
 # ---------------------------------------------------------------------------

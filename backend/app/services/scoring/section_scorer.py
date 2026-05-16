@@ -10,7 +10,7 @@ All scoring is deterministic and rule-based.
 The caller (score_calculator.py) applies mode-specific weights.
 """
 
-from app.schemas.resume_schema import DetectedSections, SectionCounts
+from backend.app.schemas.resume_schema import DetectedSections, SectionCounts
 
 
 # ---------------------------------------------------------------------------

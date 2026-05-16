@@ -13,7 +13,7 @@ All logic is deterministic. No ML, no embeddings, no external calls.
 
 import re
 from typing import Optional
-from app.services.scoring.title_keywords import ROLE_KEYWORDS
+from backend.app.services.scoring.title_keywords import ROLE_KEYWORDS
 
 
 # ---------------------------------------------------------------------------

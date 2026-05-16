@@ -11,16 +11,16 @@ section_scorer and keyword_matcher produce 0–100 sub-scores independently.
 """
 
 from typing import Optional
-from app.schemas.resume_schema import DetectedSections, SectionCounts
-from app.schemas.scoring_schema import ScoreBreakdown, ScoreResult
-from app.services.scoring.keyword_matcher import (
+from backend.app.schemas.resume_schema import DetectedSections, SectionCounts
+from backend.app.schemas.scoring_schema import ScoreBreakdown, ScoreResult
+from backend.app.services.scoring.keyword_matcher import (
     detect_mode,
     resolve_title_to_role,
     get_keywords_for_role,
     extract_keywords_from_jd,
     match_keywords,
 )
-from app.services.scoring.section_scorer import score_sections, score_structure
+from backend.app.services.scoring.section_scorer import score_sections, score_structure
 
 
 # ---------------------------------------------------------------------------

@@ -1,0 +1,1604 @@
+[
+  {
+    "question_id": 1,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Encapsulation hides internal implementation behind a public interface, so you can change the internals without breaking external code. That's what makes refactoring safe and maintainable."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "It keeps internal state private, so other classes can't directly modify it. If the internals change, the rest of the code doesn't need to."
+      },
+      {
+        "quality": "average",
+        "label": 0.58,
+        "candidate_answer": "Encapsulation hides data inside a class so it's protected from outside changes."
+      },
+      {
+        "quality": "weak",
+        "label": 0.27,
+        "candidate_answer": "It keeps data safe inside a class so other parts can't access it."
+      }
+    ]
+  },
+  {
+    "question_id": 2,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "When classes don't share a natural is-a relationship, composition is cleaner. Inheritance creates tight coupling, so if the parent changes everything below it can break."
+      },
+      {
+        "quality": "good",
+        "label": 0.8,
+        "candidate_answer": "Composition is better when you want to reuse behavior without locking into a rigid hierarchy. It's more flexible than inheritance."
+      },
+      {
+        "quality": "average",
+        "label": 0.57,
+        "candidate_answer": "When inheritance would create too many subclasses or get complicated, composition is preferred."
+      },
+      {
+        "quality": "weak",
+        "label": 0.29,
+        "candidate_answer": "Composition is better when inheritance gets too complicated I think."
+      }
+    ]
+  },
+  {
+    "question_id": 3,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.95,
+        "candidate_answer": "Deep hierarchies create tight coupling between layers. If a base class changes, it can break subclasses far down the chain and debugging becomes really difficult."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "The deeper the hierarchy, the harder it is to track where behavior comes from. Changes in parent classes can cause unexpected issues in subclasses."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Too many inheritance levels makes the code hard to follow and changes can cause unexpected bugs."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "It gets complicated and hard to read when there are too many levels."
+      }
+    ]
+  },
+  {
+    "question_id": 4,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Polymorphism lets you write code against a base type, so when you add new subclasses, existing code handles them automatically without modification. That's what makes systems open for extension."
+      },
+      {
+        "quality": "good",
+        "label": 0.83,
+        "candidate_answer": "You can add new types without changing existing code, as long as they implement the same interface. It keeps things loosely coupled."
+      },
+      {
+        "quality": "average",
+        "label": 0.56,
+        "candidate_answer": "Polymorphism lets different classes be used through the same interface, so adding new types doesn't break existing code."
+      },
+      {
+        "quality": "weak",
+        "label": 0.24,
+        "candidate_answer": "It lets objects behave differently which makes the system easier to extend."
+      }
+    ]
+  },
+  {
+    "question_id": 5,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.92,
+        "candidate_answer": "Abstraction hides complexity and makes code easier to maintain, but over-abstracting adds unnecessary layers that make debugging harder. The goal is abstracting where change is likely, not everywhere."
+      },
+      {
+        "quality": "good",
+        "label": 0.79,
+        "candidate_answer": "Too much abstraction hides what's actually happening, which makes tracing bugs difficult. There's a balance between simplifying and obscuring."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Abstraction simplifies things but if overdone it becomes hard to understand what the code is actually doing."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Too much abstraction makes the code confusing even though it's meant to simplify things."
+      }
+    ]
+  },
+  {
+    "question_id": 6,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Interfaces define a contract that components agree to follow, so different implementations can be swapped without changing the code that depends on them. That's what keeps large systems loosely coupled."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "They set a common contract between components, so you can swap implementations without affecting the rest of the system."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Interfaces let different classes follow the same structure so they can be used interchangeably."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "Interfaces define methods that classes must implement, which helps organize large codebases."
+      }
+    ]
+  },
+  {
+    "question_id": 7,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Runtime polymorphism in Java is achieved through method overriding. A parent class reference can point to a child object, and at runtime the JVM calls the overridden version based on the actual object type, not the reference type."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "It's done through method overriding. The method that runs is decided at runtime based on the actual type of the object, not how it's declared."
+      },
+      {
+        "quality": "average",
+        "label": 0.57,
+        "candidate_answer": "When a subclass overrides a parent method, the child's version runs at runtime. That's runtime polymorphism."
+      },
+      {
+        "quality": "weak",
+        "label": 0.28,
+        "candidate_answer": "It's achieved using method overriding in subclasses, I think."
+      }
+    ]
+  },
+  {
+    "question_id": 8,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Loose coupling means components don't depend heavily on each other's internals. So when one part changes, others aren't affected — that makes testing, scaling, and maintaining the system much easier."
+      },
+      {
+        "quality": "good",
+        "label": 0.8,
+        "candidate_answer": "When components are loosely coupled, changes in one don't break others. It also makes unit testing easier since you can isolate components."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Loose coupling reduces dependencies so changes in one class don't affect the whole system."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "It makes the code more independent so things don't break as easily."
+      }
+    ]
+  },
+  {
+    "question_id": 9,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Normalization eliminates redundant data and organizes it into structured tables, which prevents update and insertion anomalies and keeps the data consistent across the database."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "It removes duplicate data and structures tables so the same information isn't stored in multiple places, which keeps things consistent."
+      },
+      {
+        "quality": "average",
+        "label": 0.56,
+        "candidate_answer": "Normalization organizes data to reduce redundancy and avoid storing the same thing in multiple tables."
+      },
+      {
+        "quality": "weak",
+        "label": 0.27,
+        "candidate_answer": "It removes duplicate data and makes the database cleaner and more organized."
+      }
+    ]
+  },
+  {
+    "question_id": 10,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Instead of scanning every row, an index lets the database jump directly to the relevant rows. It's like a lookup table for frequently searched columns, which drastically reduces query time on large datasets."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "Indexes avoid full table scans by giving the database a faster way to locate rows. Queries on indexed columns run much faster."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Indexes speed up queries by letting the database find rows faster without scanning the whole table."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "Indexes make queries faster. I think they store some extra data to help with lookups."
+      }
+    ]
+  },
+
+  {
+    "question_id": 11,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Transactions group multiple operations so they either all succeed or all roll back. This prevents partial updates from leaving the database in an inconsistent state."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "They ensure that a set of operations completes fully or not at all, so you don't end up with half-written data."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Transactions make sure multiple database operations happen together without partial failures."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "They group operations so the database stays consistent if something goes wrong."
+      }
+    ]
+  },
+  {
+    "question_id": 12,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "ACID guarantees that transactions are reliable even when the system crashes or multiple users access data simultaneously. Without it, you'd risk data corruption, lost updates, or inconsistent reads."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "They ensure data stays consistent and transactions don't interfere with each other, even under failure or concurrent access."
+      },
+      {
+        "quality": "average",
+        "label": 0.56,
+        "candidate_answer": "ACID properties make sure transactions are reliable and the database stays consistent even if something fails."
+      },
+      {
+        "quality": "weak",
+        "label": 0.27,
+        "candidate_answer": "ACID makes transactions safe and prevents data issues. I know Atomicity is one of the properties."
+      }
+    ]
+  },
+  {
+    "question_id": 13,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "A clustered index physically sorts the table data, so there can only be one per table. A non-clustered index is a separate structure with pointers to the actual rows, and you can have multiple."
+      },
+      {
+        "quality": "good",
+        "label": 0.83,
+        "candidate_answer": "Clustered indexes determine how data is physically stored, so only one is allowed. Non-clustered ones are separate lookup structures and multiple can exist on a table."
+      },
+      {
+        "quality": "average",
+        "label": 0.57,
+        "candidate_answer": "A clustered index sorts the actual table data, while a non-clustered one is stored separately and points to the rows."
+      },
+      {
+        "quality": "weak",
+        "label": 0.28,
+        "candidate_answer": "Clustered index is the main one and non-clustered is an extra index. I think only one clustered index is allowed."
+      }
+    ]
+  },
+  {
+    "question_id": 14,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Every index needs to be updated on inserts, updates, and deletes, so having too many slows down write operations and increases storage. You want indexes only on columns that are actually queried frequently."
+      },
+      {
+        "quality": "good",
+        "label": 0.8,
+        "candidate_answer": "Too many indexes slow down writes because each one has to be maintained when data changes. They also take up extra storage."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Indexes add overhead on write operations because they need to be updated every time data changes."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Too many indexes slow things down and use more storage than needed."
+      }
+    ]
+  },
+  {
+    "question_id": 15,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.95,
+        "candidate_answer": "Primary keys uniquely identify each row and can't be null. Foreign keys reference primary keys in other tables and enforce referential integrity, so you can't have orphan records pointing to nonexistent data."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "Primary keys uniquely identify rows in a table. Foreign keys link to primary keys in other tables to maintain relationships between them."
+      },
+      {
+        "quality": "average",
+        "label": 0.56,
+        "candidate_answer": "Primary key is a unique identifier for each row. Foreign key connects two tables by referencing the primary key of another table."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "Primary key identifies rows and foreign key links tables together. I've used both in SQL."
+      }
+    ]
+  },
+  {
+    "question_id": 16,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Normalization structures data to eliminate redundancy and maintain consistency. Denormalization deliberately adds redundancy back to reduce expensive joins and speed up read-heavy queries — it's a conscious performance trade-off."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Normalization removes duplicate data for consistency, while denormalization adds some redundancy back to make reads faster. They're opposite approaches used in different scenarios."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Normalization reduces redundancy and denormalization adds it back. Denormalization is used when read performance matters more than storage efficiency."
+      },
+      {
+        "quality": "weak",
+        "label": 0.27,
+        "candidate_answer": "Normalization removes duplicate data and denormalization is the opposite. I think denormalization is used for performance."
+      }
+    ]
+  },
+  {
+    "question_id": 17,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Each process has its own memory space and system resources, so creating one and switching between them is expensive. Threads share the same process memory, which makes them much cheaper to create and context-switch."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "Processes have isolated memory, so context switching involves saving and restoring a lot more state. Threads share memory within a process, making them lighter and faster to switch."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Processes have their own memory space while threads share memory, so processes take more resources to create and switch between."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "Processes use more memory and resources than threads, so they're considered heavier."
+      }
+    ]
+  },
+  {
+    "question_id": 18,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Virtual memory lets the OS use disk space as an extension of RAM, so programs can run even if they don't fully fit in physical memory. The OS pages data in and out as needed, allowing better multitasking and larger application support."
+      },
+      {
+        "quality": "good",
+        "label": 0.8,
+        "candidate_answer": "It extends available memory by using disk space, so the system can run more processes than physical RAM alone would allow. Pages are loaded on demand."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Virtual memory uses disk space when RAM runs out, letting the system handle more processes at once."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "It lets the system use disk as extra RAM so more programs can run at once."
+      }
+    ]
+  },
+  {
+    "question_id": 19,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.95,
+        "candidate_answer": "Four conditions must hold simultaneously — mutual exclusion, where resources can't be shared; hold and wait, where a process holds one resource while waiting for another; no preemption, where resources can't be forcibly taken; and circular wait, where processes form a cycle of dependencies."
+      },
+      {
+        "quality": "good",
+        "label": 0.83,
+        "candidate_answer": "Deadlock needs mutual exclusion, hold and wait, no preemption, and circular wait — all four at the same time. Removing any one of them breaks the deadlock."
+      },
+      {
+        "quality": "average",
+        "label": 0.56,
+        "candidate_answer": "There are four conditions — mutual exclusion, hold and wait, no preemption, and circular wait. All four must be present for deadlock to happen."
+      },
+      {
+        "quality": "weak",
+        "label": 0.27,
+        "candidate_answer": "I remember mutual exclusion and circular wait. I think there are four conditions total but I don't recall all of them."
+      }
+    ]
+  },
+  {
+    "question_id": 20,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Every context switch requires saving the current process state and restoring another, which is pure overhead. If this happens too frequently, the CPU spends more time switching than actually executing processes."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Context switching saves and restores process state, which takes CPU time. Too many switches means the CPU is spending more effort on switching than on real work."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Each context switch adds overhead because the OS has to save and load process states. Too many of them reduces time spent on actual execution."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Context switching takes time and if it happens too often the CPU gets slowed down."
+      }
+    ]
+  },
+  {
+    "question_id": 21,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Paging divides memory into fixed-size blocks called pages, which eliminates external fragmentation but can cause internal fragmentation. Segmentation uses variable-sized logical divisions based on program structure like code, stack, and heap, which is more natural but can lead to external fragmentation."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "Paging uses fixed-size blocks so memory management is simpler. Segmentation uses variable-sized sections that match the logical structure of a program."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Paging splits memory into equal fixed blocks. Segmentation splits it into logical sections of different sizes based on the program."
+      },
+      {
+        "quality": "weak",
+        "label": 0.27,
+        "candidate_answer": "Paging uses fixed sizes and segmentation uses variable sizes. Both are memory management techniques."
+      }
+    ]
+  },
+  {
+    "question_id": 22,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Without scheduling, one process could monopolize the CPU. Scheduling decides which process runs and for how long, keeping CPU utilization high and ensuring all processes get fair execution time."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "It ensures the CPU is always doing useful work and that processes share it fairly rather than one process blocking everything else."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "CPU scheduling decides which process runs next so all processes get CPU time and the system stays efficient."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "It manages how processes share the CPU so the system can run multiple things at once."
+      }
+    ]
+  },
+  {
+    "question_id": 23,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Race conditions happen when multiple threads access shared data simultaneously and the outcome depends on timing. Mutexes and semaphores enforce mutual exclusion, ensuring only one thread accesses the critical section at a time."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "Mechanisms like mutexes lock shared resources so only one thread can access them at a time, preventing conflicting reads and writes."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Synchronization controls access to shared resources so threads don't interfere with each other and cause inconsistent results."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "They prevent multiple threads from accessing the same data at the same time, which avoids conflicts."
+      }
+    ]
+  },
+  {
+    "question_id": 24,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "If you optimize for throughput, you run longer jobs with fewer switches, but interactive processes feel slow. If you prioritize response time, you switch frequently which hurts throughput. Schedulers like Round Robin try to balance both but neither extreme is ideal for all workloads."
+      },
+      {
+        "quality": "good",
+        "label": 0.8,
+        "candidate_answer": "High throughput means running fewer, longer jobs which increases response time for interactive processes. Optimizing response time means more context switches, which reduces overall CPU efficiency."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Focusing on throughput can make response time worse for users, and improving response time usually means more switching which lowers throughput."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "Throughput and response time are hard to optimize together. Improving one usually makes the other worse."
+      }
+    ]
+  },
+  {
+    "question_id": 25,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "TCP establishes a connection and uses acknowledgments, retransmissions, and sequencing to guarantee that data arrives correctly and in order. UDP just sends packets with no delivery guarantees, so it's faster but unreliable."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "TCP acknowledges every packet and retransmits if something is lost. UDP doesn't do any of that, so there's no guarantee the data arrives."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "TCP ensures packets arrive and are in order using acknowledgments. UDP doesn't check any of that, so it's faster but less reliable."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "TCP checks that data is received correctly. UDP just sends without any confirmation."
+      }
+    ]
+  },
+  {
+    "question_id": 26,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "HTTPS uses SSL/TLS to encrypt data in transit, so even if someone intercepts the traffic they can't read it. It also verifies the server's identity through certificates, preventing man-in-the-middle attacks."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "HTTPS encrypts communication using TLS, so data can't be read or tampered with during transmission. HTTP sends everything in plain text."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "HTTPS encrypts the data between client and server so it can't be intercepted easily. HTTP doesn't have any encryption."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "HTTPS is secure because it encrypts data. HTTP doesn't encrypt anything."
+      }
+    ]
+  },
+  {
+    "question_id": 27,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "DNS acts like a phonebook for the internet — it resolves domain names to IP addresses so browsers know which server to connect to. Without it, you'd have to remember IP addresses for every website."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "DNS translates domain names into IP addresses. When you type a URL, DNS resolves it to the actual server address before the connection is made."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "DNS converts website names into IP addresses so devices can find the right server."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "DNS turns domain names into IPs so the browser knows where to go."
+      }
+    ]
+  },
+  {
+    "question_id": 28,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "When too many packets flood the network, routers drop them and retransmissions make things worse. Congestion control, like TCP's slow start, reduces transmission rates when congestion is detected, preventing collapse and keeping the network stable."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Congestion control slows down transmission when the network is overloaded, preventing packet loss from getting worse and keeping throughput stable."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "It regulates how fast data is sent so the network doesn't get overwhelmed with too many packets at once."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "Congestion control slows down sending when the network is busy so it doesn't crash."
+      }
+    ]
+  },
+  {
+    "question_id": 29,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Routers connect different networks and forward packets based on routing tables. In large networks, they determine the best path for data to travel across multiple interconnected systems, which switches alone can't handle."
+      },
+      {
+        "quality": "good",
+        "label": 0.8,
+        "candidate_answer": "Routers direct traffic between different networks using routing tables. Without them, packets wouldn't know how to reach destinations outside the local network."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Routers connect different networks and forward packets to the right destination based on IP addresses."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Routers direct network traffic between different networks. They're needed to connect large systems."
+      }
+    ]
+  },
+  {
+    "question_id": 30,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "The OSI model breaks network communication into seven standardized layers, each with a specific responsibility. This means different vendors can build hardware and software that interoperates as long as they follow the same layer contracts."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "It standardizes how different systems communicate by dividing the process into layers. Each layer handles a specific function, making it easier to build interoperable systems."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "The OSI model organizes network communication into layers so different systems and technologies can work together."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "It provides a standard way for systems to communicate across networks using defined layers."
+      }
+    ]
+  },
+  {
+    "question_id": 31,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Packet switching breaks data into smaller packets so multiple communications can share the same network resources simultaneously, which makes the network much more efficient."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Instead of dedicating a fixed path, packet switching lets multiple connections share links by sending data in small packets."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Packet switching splits data into packets so the network can handle multiple communications at the same time."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "It splits data into smaller packets so the network works more efficiently."
+      }
+    ]
+  },
+  {
+    "question_id": 32,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "High latency delays how quickly data is delivered, which causes lag and synchronization issues in real-time applications like video calls."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "In real-time apps, even small delays cause noticeable lag. High latency breaks the synchronization that makes calls feel smooth."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Latency causes delay in data delivery, which leads to lag in video calls and makes communication feel off."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "High latency causes lag in video calls. Low latency is needed for real-time apps to work."
+      }
+    ]
+  },
+  {
+    "question_id": 33,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Hash tables use a hash function to map keys directly to storage locations, so lookups are constant time on average — no searching required."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "The hash function maps a key to an index directly, so you jump straight to the value without scanning. Average lookup is O(1)."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Hash tables use a hash function to find where a value is stored, making lookups very fast on average."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "They use a hash function to find values quickly. Lookups are usually constant time."
+      }
+    ]
+  },
+  {
+    "question_id": 34,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Arrays give fast indexed access but have a fixed size. Linked lists are dynamically sized but traversal is slower and each node uses extra memory for the pointer."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "Arrays are fast to access by index but can't resize easily. Linked lists handle dynamic sizing but are slower to traverse."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Arrays are better for fast access and linked lists are better when the size changes frequently."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "Arrays have fixed size and linked lists are dynamic. Arrays are faster to access."
+      }
+    ]
+  },
+  {
+    "question_id": 35,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Recursion naturally matches the hierarchical structure of trees, which makes traversal and divide-and-conquer operations much simpler to implement."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Tree problems repeat the same logic on subtrees, which maps cleanly to recursion. It makes traversal code much cleaner."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Recursion works well with trees because each subtree has the same structure, so you can apply the same function recursively."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Trees have a recursive structure so recursion is a natural fit for tree problems."
+      }
+    ]
+  },
+  {
+    "question_id": 36,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "If the pivot is always the smallest or largest element, partitions become highly unbalanced and QuickSort degrades from O(n log n) to O(n²) in the worst case."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "A bad pivot creates unbalanced partitions, so one side has almost all the elements. That pushes the time complexity toward O(n²)."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Poor pivot selection makes the partitions uneven, which slows QuickSort down significantly in the worst case."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "If the pivot is chosen badly, QuickSort becomes slow. I think it goes from O(n log n) to something worse."
+      }
+    ]
+  },
+  {
+    "question_id": 37,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Each function call pushes a frame onto the call stack containing local variables and the return address. When the function returns, the frame is popped and execution resumes from where it left off."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "The call stack stores each function's local variables and return address. When a function finishes, the stack unwinds back to the caller."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Stacks keep track of function calls, local variables, and where to return after each function finishes."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "The call stack stores information about function calls so the program knows where to return after each one."
+      }
+    ]
+  },
+  {
+    "question_id": 38,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Queues process tasks in FIFO order, which is exactly what scheduling systems need — tasks are handled in the order they arrive, making them fair and predictable."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Queues maintain order so tasks are processed in the sequence they arrive. That makes them a natural fit for scheduling and buffering."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Queues keep tasks in order so scheduling systems can process them fairly one at a time."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Queues process things in order, which is useful for scheduling tasks."
+      }
+    ]
+  },
+  {
+    "question_id": 39,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Binary search works on sorted data by repeatedly halving the search space, which reduces time complexity from O(n) linear search to O(log n)."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "By splitting the sorted array in half each time, binary search eliminates half the remaining elements per step, giving O(log n) performance."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Binary search keeps dividing the data in half so it finds the target much faster than checking every element."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "It splits the data in half each time to find the answer faster. It requires sorted data."
+      }
+    ]
+  },
+  {
+    "question_id": 40,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "You look at what operations are most frequent, the time and space complexity those operations need, and how the data access pattern looks. Memory usage and scalability requirements also play a big role."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "It depends on what operations you need most — reads, writes, or both — along with memory constraints and how the data scales."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "You consider the time complexity of operations needed, memory usage, and what kind of access patterns the application has."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "It depends on performance needs, memory, and what operations the system uses most."
+      }
+    ]
+  },
+  {
+    "question_id": 41,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "An overfitted model memorizes the training data rather than learning general patterns, so it performs well on training but poorly on unseen data."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Overfitting means the model learns the training data too specifically and fails to generalize when given new inputs."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "The model performs well on training data but badly on new data because it memorized instead of learning patterns."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Overfitting makes the model too specific to training data so it doesn't work well on new data."
+      }
+    ]
+  },
+  {
+    "question_id": 42,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "If you evaluate on training data, you're just measuring memorization. The test split gives you unseen data to check whether the model actually generalizes and to detect overfitting."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Testing on unseen data tells you if the model generalizes or just memorized the training set. Without it you can't detect overfitting."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "The test set checks how the model performs on data it hasn't seen, which shows whether it's generalizing properly."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "You need a test split to see if the model works on new data and not just training data."
+      }
+    ]
+  },
+  {
+    "question_id": 43,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Regularization adds a penalty for model complexity, discouraging the model from fitting noise in the training data and pushing it toward simpler patterns that generalize better."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "It penalizes large weights or complex models, which forces the model to stay simpler and avoid overfitting the training data."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Regularization penalizes complexity so the model doesn't overfit by learning too many specific details from training data."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "It adds a penalty to prevent the model from getting too complex and overfitting."
+      }
+    ]
+  },
+  {
+    "question_id": 44,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "High bias means the model is too simple and underfits. High variance means it's too sensitive to training data and overfits. You need to balance both to get good generalization."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Reducing bias usually increases variance and vice versa. The goal is finding a model complex enough to learn patterns but not so complex it overfits."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "High bias causes underfitting and high variance causes overfitting. You want a balance between the two."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Bias and variance are both types of error. High bias underfits and high variance overfits."
+      }
+    ]
+  },
+  {
+    "question_id": 45,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Poor quality data and irrelevant features make it harder for models to learn useful patterns. Good preprocessing and feature engineering improve data quality so the model can focus on what actually matters."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Models learn from what you feed them, so clean data and well-engineered features directly improve what the model can learn and how accurately it performs."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "If data is noisy or features aren't meaningful, the model won't learn well. Preprocessing and feature engineering fix that."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Clean data and good features help the model learn better and improve accuracy."
+      }
+    ]
+  },
+  {
+    "question_id": 46,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Supervised learning trains on labeled data to predict outputs. Unsupervised learning works with unlabeled data and finds hidden patterns or groupings on its own."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Supervised learning uses labeled examples to learn predictions. Unsupervised learning has no labels and discovers structure in the data itself."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Supervised learning needs labeled data and unsupervised doesn't. Supervised is used for prediction tasks like classification."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Supervised uses labeled data and unsupervised doesn't. They're used for different types of problems."
+      }
+    ]
+  },
+  {
+    "question_id": 47,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Embeddings convert words or sentences into numerical vectors that capture semantic meaning, so similar words end up close together in vector space and models can work with language mathematically."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "They represent text as vectors that preserve meaning, so models can understand relationships between words rather than treating them as arbitrary tokens."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Embeddings turn words into numbers that capture their meaning, which lets machine learning models process language."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Embeddings convert words to vectors so models can understand and process text."
+      }
+    ]
+  },
+  {
+    "question_id": 48,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Deep networks have a large number of parameters to learn, so they need substantial training data to generalize well. With too little data, they overfit and memorize rather than learn useful patterns."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "The more parameters a network has, the more data it needs to avoid overfitting. Deep networks have many layers and weights, so small datasets aren't enough."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Deep networks have many parameters, so they need a lot of data to learn properly without overfitting."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "They have many layers and parameters so they need more data to train well."
+      }
+    ]
+  },
+  {
+    "question_id": 49,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "REST APIs give frontend and backend systems a standardized way to communicate using HTTP methods. The stateless design makes them scalable and easy to consume across different clients."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "They provide a consistent interface for frontend and backend to exchange data using standard HTTP methods, keeping the two sides decoupled."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "REST APIs let the frontend and backend communicate in a structured way using HTTP. They're widely used because they're simple and standardized."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "REST APIs allow the frontend to communicate with the backend. They use HTTP methods like GET and POST."
+      }
+    ]
+  },
+  {
+    "question_id": 50,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "With client-side rendering, the browser downloads JavaScript and builds the page dynamically. Server-side rendering sends fully built HTML from the server, which is faster for initial load and better for SEO."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "CSR generates content in the browser using JavaScript, so the initial load can be slower. SSR sends ready HTML from the server, which loads faster and is more SEO-friendly."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Client-side rendering builds the page in the browser with JavaScript. Server-side rendering sends pre-built HTML from the server."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "CSR renders in the browser and SSR renders on the server before sending to the client."
+      }
+    ]
+  },
+  {
+    "question_id": 51,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Authentication verifies who a user is before granting access, preventing unauthorized users from reaching protected resources and features."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Without authentication, anyone could access protected parts of the app. It ensures only verified users can reach sensitive resources."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Authentication checks user identity so only authorized users can access protected areas of the application."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "It verifies who the user is so unauthorized people can't access protected parts of the app."
+      }
+    ]
+  },
+  {
+    "question_id": 52,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Poor API design leads to inconsistent interfaces and tight coupling between systems, which makes changes expensive and scaling harder as the application grows."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Badly designed APIs are inconsistent and tightly coupled, so small changes break dependent systems and the whole thing becomes hard to scale."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "If the API is poorly designed, it's hard to change without breaking things, and scaling becomes more difficult over time."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Poor API design makes the system harder to maintain and scale as it grows."
+      }
+    ]
+  },
+  {
+    "question_id": 53,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "CORS restricts which external domains can make requests to a server from the browser, preventing unauthorized cross-origin access to protected resources."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "It controls which origins are allowed to access server resources, so malicious sites can't make requests on behalf of a user."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "CORS blocks cross-origin requests by default and only allows domains the server explicitly permits."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "CORS prevents unauthorized domains from accessing server resources from the browser."
+      }
+    ]
+  },
+  {
+    "question_id": 54,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Cookies store small data directly in the browser and are sent with every request. Sessions keep user data on the server and use a session ID stored in a cookie to identify the user."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "Cookies store data client-side in the browser. Sessions store data server-side and use a session ID to track the user across requests."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Cookies hold data in the browser while sessions store data on the server and reference it with an ID."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "Cookies are stored in the browser and sessions are stored on the server."
+      }
+    ]
+  },
+  {
+    "question_id": 55,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "In large frontends, many components need to share and react to the same data. State management keeps that data flow predictable and ensures the UI stays consistent across components."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Without centralized state management, data gets out of sync between components. It keeps the UI consistent and data flow predictable."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "State management keeps shared data consistent across components so the UI doesn't behave unpredictably."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "It helps manage data shared between components so the UI stays consistent."
+      }
+    ]
+  },
+  {
+    "question_id": 56,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Monoliths are simpler to develop and deploy initially, but scaling becomes harder as they grow. Microservices give you independent scaling and deployment but add significant operational complexity."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Monoliths are easier to start with but hard to scale. Microservices scale well and keep services independent, but managing them is much more complex."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Monoliths are simpler but harder to scale. Microservices are scalable but more complex to manage and deploy."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Monoliths are simpler and microservices are more scalable but harder to manage."
+      }
+    ]
+  },
+  {
+    "question_id": 57,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Without exception handling, a runtime error crashes the whole program. It lets you catch failures, handle them gracefully, and keep the application running where possible."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Exception handling prevents the program from crashing on unexpected errors and lets you define how to recover or fail gracefully."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "It stops runtime errors from crashing the program and lets you handle failures in a controlled way."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Exception handling stops the program from crashing when an error occurs."
+      }
+    ]
+  },
+  {
+    "question_id": 58,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Garbage collection automatically reclaims memory from objects that are no longer referenced, so developers don't need to manually free memory and the risk of memory leaks is reduced."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "It frees memory from unused objects automatically, which prevents memory leaks and removes the burden of manual memory management."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Garbage collection handles freeing unused memory automatically so developers don't have to manage it themselves."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "It automatically cleans up unused memory so developers don't have to free it manually."
+      }
+    ]
+  },
+  {
+    "question_id": 59,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Decorators let you wrap reusable behavior around functions without touching their core logic. Things like logging, authentication checks, or caching can be applied cleanly across multiple functions."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "They add reusable functionality to functions without modifying the original code, which keeps things clean and avoids repetition."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Decorators let you add extra behavior to functions without changing the function itself, which avoids code duplication."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "They add functionality to functions without modifying them directly. I've used them for things like login checks."
+      }
+    ]
+  },
+  {
+    "question_id": 60,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Multithreading introduces race conditions when threads access shared data simultaneously, deadlocks when threads wait on each other indefinitely, and synchronization complexity that makes programs harder to reason about."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "The main issues are race conditions, where threads conflict over shared data, and deadlocks, where threads block each other. Synchronization helps but adds its own complexity."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Race conditions and deadlocks are common problems. Multiple threads accessing shared resources at the same time can cause unpredictable behavior."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Multithreading can cause race conditions and deadlocks when threads share resources."
+      }
+    ]
+  },
+  {
+    "question_id": 61,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "Interfaces only define method contracts with no implementation or state. Abstract classes can have both concrete methods and instance variables, making them better for sharing common behavior among related classes."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "An interface is purely a contract — no implementation. Abstract classes can have some implemented methods and shared state, so they're more flexible."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Interfaces only have method signatures while abstract classes can have some implemented methods and variables."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Interfaces have no implementation and abstract classes can have some code. You can implement multiple interfaces but extend only one abstract class."
+      }
+    ]
+  },
+  {
+    "question_id": 62,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "Collections frameworks give you ready-made data structures like lists, maps, and sets with well-tested algorithms, so you don't have to implement them from scratch every time."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "They provide reusable, efficient data structures and algorithms out of the box, saving time and reducing the chance of bugs from custom implementations."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "Collections give you built-in data structures like lists and maps so you don't have to write your own."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "They provide common data structures like lists and maps that are ready to use."
+      }
+    ]
+  },
+  {
+    "question_id": 63,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.94,
+        "candidate_answer": "In static typing, variable types are checked at compile time so errors are caught early. Dynamic typing resolves types at runtime, which is more flexible but can let type errors slip through until execution."
+      },
+      {
+        "quality": "good",
+        "label": 0.82,
+        "candidate_answer": "Static typing catches type errors at compile time. Dynamic typing only checks types at runtime, which is more flexible but can lead to runtime errors."
+      },
+      {
+        "quality": "average",
+        "label": 0.55,
+        "candidate_answer": "Static typing checks types before running the program. Dynamic typing checks them during execution, like in Python."
+      },
+      {
+        "quality": "weak",
+        "label": 0.26,
+        "candidate_answer": "Static typing is checked at compile time and dynamic typing at runtime. Python is dynamic and Java is static."
+      }
+    ]
+  },
+  {
+    "question_id": 64,
+    "answers": [
+      {
+        "quality": "excellent",
+        "label": 0.93,
+        "candidate_answer": "If resources like memory, file handles, or database connections aren't released properly, they accumulate over time and cause memory leaks, resource exhaustion, and eventually degraded system performance."
+      },
+      {
+        "quality": "good",
+        "label": 0.81,
+        "candidate_answer": "Unreleased resources like open file handles or allocated memory build up over time, causing leaks and slowing the system down progressively."
+      },
+      {
+        "quality": "average",
+        "label": 0.54,
+        "candidate_answer": "If you don't release memory or close connections properly, resources accumulate and the application slows down or crashes."
+      },
+      {
+        "quality": "weak",
+        "label": 0.25,
+        "candidate_answer": "Not freeing memory or closing resources properly causes leaks and performance issues over time."
+      }
+    ]
+  }
+]
+

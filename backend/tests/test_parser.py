@@ -5,7 +5,7 @@ Tests for text cleaning, section parsing, and section counting.
 All tests are deterministic — same input always produces same output.
 """
 
-from app.services.parser.text_cleaner import (
+from backend.app.services.parser.text_cleaner import (
     clean_text,
     remove_control_characters,
     normalize_unicode,
@@ -13,7 +13,7 @@ from app.services.parser.text_cleaner import (
     normalize_whitespace,
     collapse_blank_lines,
 )
-from app.services.parser.section_parser import (
+from backend.app.services.parser.section_parser import (
     parse_sections,
     compute_section_counts,
     _classify_line,
@@ -201,7 +201,7 @@ class TestClassifyLine:
 
 class TestParseSections:
     def setup_method(self):
-        from app.services.parser.text_cleaner import clean_text
+        from backend.app.services.parser.text_cleaner import clean_text
         self.sections = parse_sections(clean_text(SAMPLE_RESUME))
 
     def test_detects_summary(self):
@@ -241,7 +241,7 @@ class TestParseSections:
 
 class TestSectionCounts:
     def setup_method(self):
-        from app.services.parser.text_cleaner import clean_text
+        from backend.app.services.parser.text_cleaner import clean_text
         sections = parse_sections(clean_text(SAMPLE_RESUME))
         self.counts = compute_section_counts(sections)
 
@@ -258,7 +258,7 @@ class TestSectionCounts:
         assert self.counts.certification_entries >= 1
 
     def test_none_sections_return_zero(self):
-        from app.schemas.resume_schema import DetectedSections
+        from backend.app.schemas.resume_schema import DetectedSections
         empty_sections = DetectedSections()
         counts = compute_section_counts(empty_sections)
         assert counts.experience_entries == 0

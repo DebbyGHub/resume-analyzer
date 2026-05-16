@@ -21,17 +21,17 @@ No parser or scorer knowledge belongs in the route layer.
 from typing import Optional
 from fastapi import UploadFile
 
-from app.schemas.scoring_schema import (
+from backend.app.schemas.scoring_schema import (
     ResumeAnalysisResponse,
     FeedbackItem,
     ScoreResult,
 )
-from app.schemas.resume_schema import DetectedSections, SectionCounts
-from app.services.parser.pdf_extractor import extract_text_from_upload
-from app.services.parser.text_cleaner import clean_text
-from app.services.parser.section_parser import parse_sections, compute_section_counts
-from app.services.scoring.score_calculator import calculate_score
-from app.services.scoring.feedback_generator import generate_feedback
+from backend.app.schemas.resume_schema import DetectedSections, SectionCounts
+from backend.app.services.parser.pdf_extractor import extract_text_from_upload
+from backend.app.services.parser.text_cleaner import clean_text
+from backend.app.services.parser.section_parser import parse_sections, compute_section_counts
+from backend.app.services.scoring.score_calculator import calculate_score
+from backend.app.services.scoring.feedback_generator import generate_feedback
 
 
 def _collect_parser_warnings(

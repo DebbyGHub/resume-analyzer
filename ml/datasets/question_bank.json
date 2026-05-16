@@ -1,0 +1,450 @@
+[
+  {
+    "id": 1,
+    "topic": "oop",
+    "difficulty": "easy",
+    "question": "How does encapsulation improve software maintainability?",
+    "ideal_answer": "Encapsulation hides internal implementation details and restricts direct access to object state, allowing changes to internal logic without affecting external code."
+  },
+  {
+    "id": 2,
+    "topic": "oop",
+    "difficulty": "medium",
+    "question": "When should composition be preferred over inheritance?",
+    "ideal_answer": "Composition should be preferred when classes need flexible behavior reuse without creating tightly coupled inheritance hierarchies."
+  },
+  {
+    "id": 3,
+    "topic": "oop",
+    "difficulty": "medium",
+    "question": "Why can deep inheritance hierarchies become problematic?",
+    "ideal_answer": "Deep inheritance hierarchies increase coupling, reduce flexibility, and make systems harder to maintain and debug."
+  },
+  {
+    "id": 4,
+    "topic": "oop",
+    "difficulty": "medium",
+    "question": "How does polymorphism improve extensibility in object-oriented systems?",
+    "ideal_answer": "Polymorphism allows different object types to be handled through a common interface, enabling extensible and loosely coupled designs."
+  },
+  {
+    "id": 5,
+    "topic": "oop",
+    "difficulty": "hard",
+    "question": "What are the trade-offs between abstraction and flexibility in software design?",
+    "ideal_answer": "Abstraction simplifies complex systems and improves maintainability, but excessive abstraction can reduce flexibility and make debugging more difficult."
+  },
+  {
+    "id": 6,
+    "topic": "oop",
+    "difficulty": "easy",
+    "question": "What problem do interfaces solve in large software systems?",
+    "ideal_answer": "Interfaces define consistent contracts between components, reducing coupling and enabling interchangeable implementations."
+  },
+  {
+    "id": 7,
+    "topic": "oop",
+    "difficulty": "medium",
+    "question": "How is runtime polymorphism achieved in Java?",
+    "ideal_answer": "Runtime polymorphism is achieved through method overriding, where the method implementation is determined dynamically based on the object's actual type."
+  },
+  {
+    "id": 8,
+    "topic": "oop",
+    "difficulty": "medium",
+    "question": "Why is loose coupling important in object-oriented design?",
+    "ideal_answer": "Loose coupling reduces dependencies between components, improving maintainability, scalability, and ease of testing."
+  },
+  {
+    "id": 9,
+    "topic": "dbms",
+    "difficulty": "easy",
+    "question": "Why is normalization important in relational databases?",
+    "ideal_answer": "Normalization reduces redundancy and improves data consistency by organizing data into structured relational tables."
+  },
+  {
+    "id": 10,
+    "topic": "dbms",
+    "difficulty": "medium",
+    "question": "How do indexes improve database query performance?",
+    "ideal_answer": "Indexes reduce the amount of data scanned during queries by providing efficient lookup structures for frequently searched columns."
+  },
+  {
+    "id": 11,
+    "topic": "dbms",
+    "difficulty": "medium",
+    "question": "What problems do database transactions solve?",
+    "ideal_answer": "Transactions ensure reliable execution of grouped database operations while maintaining consistency and preventing partial updates."
+  },
+  {
+    "id": 12,
+    "topic": "dbms",
+    "difficulty": "hard",
+    "question": "Why are ACID properties important in transactional systems?",
+    "ideal_answer": "ACID properties guarantee reliable and consistent transaction processing even during failures or concurrent access."
+  },
+  {
+    "id": 13,
+    "topic": "dbms",
+    "difficulty": "medium",
+    "question": "What is the difference between clustered and non-clustered indexes?",
+    "ideal_answer": "Clustered indexes determine the physical order of table data, while non-clustered indexes store separate lookup structures pointing to rows."
+  },
+  {
+    "id": 14,
+    "topic": "dbms",
+    "difficulty": "medium",
+    "question": "Why can excessive indexing negatively impact database performance?",
+    "ideal_answer": "Excessive indexes increase storage overhead and slow down insert, update, and delete operations due to index maintenance."
+  },
+  {
+    "id": 15,
+    "topic": "dbms",
+    "difficulty": "easy",
+    "question": "What is the purpose of primary and foreign keys in relational databases?",
+    "ideal_answer": "Primary keys uniquely identify rows, while foreign keys maintain relationships and referential integrity between tables."
+  },
+  {
+    "id": 16,
+    "topic": "dbms",
+    "difficulty": "hard",
+    "question": "How does database normalization differ from denormalization?",
+    "ideal_answer": "Normalization reduces redundancy for consistency, while denormalization intentionally introduces redundancy to improve read performance."
+  },
+  {
+    "id": 17,
+    "topic": "operating_systems",
+    "difficulty": "easy",
+    "question": "Why are processes considered heavier than threads?",
+    "ideal_answer": "Processes have separate memory spaces and system resources, making context switching and creation more expensive compared to lightweight threads sharing the same process memory."
+  },
+  {
+    "id": 18,
+    "topic": "operating_systems",
+    "difficulty": "medium",
+    "question": "How does virtual memory improve system efficiency?",
+    "ideal_answer": "Virtual memory allows systems to use disk space as an extension of RAM, enabling larger applications and better memory management through paging."
+  },
+  {
+    "id": 19,
+    "topic": "operating_systems",
+    "difficulty": "hard",
+    "question": "What conditions are necessary for a deadlock to occur?",
+    "ideal_answer": "Deadlock occurs when mutual exclusion, hold-and-wait, no preemption, and circular wait conditions exist simultaneously."
+  },
+  {
+    "id": 20,
+    "topic": "operating_systems",
+    "difficulty": "medium",
+    "question": "Why can excessive context switching reduce system performance?",
+    "ideal_answer": "Frequent context switching increases CPU overhead because the operating system repeatedly saves and restores process states instead of executing useful work."
+  },
+  {
+    "id": 21,
+    "topic": "operating_systems",
+    "difficulty": "medium",
+    "question": "How does paging differ from segmentation in memory management?",
+    "ideal_answer": "Paging divides memory into fixed-size blocks, while segmentation divides memory into variable-sized logical sections based on program structure."
+  },
+  {
+    "id": 22,
+    "topic": "operating_systems",
+    "difficulty": "easy",
+    "question": "Why is CPU scheduling important in multitasking systems?",
+    "ideal_answer": "CPU scheduling ensures efficient processor utilization and fair execution of multiple processes in multitasking environments."
+  },
+  {
+    "id": 23,
+    "topic": "operating_systems",
+    "difficulty": "medium",
+    "question": "How do synchronization mechanisms prevent race conditions?",
+    "ideal_answer": "Synchronization mechanisms like mutexes and semaphores control concurrent access to shared resources, preventing inconsistent program states."
+  },
+  {
+    "id": 24,
+    "topic": "operating_systems",
+    "difficulty": "hard",
+    "question": "What trade-offs exist between throughput and response time in CPU scheduling?",
+    "ideal_answer": "Maximizing throughput may delay interactive processes, while optimizing response time can reduce overall CPU efficiency and throughput."
+  },
+  {
+    "id": 25,
+    "topic": "computer_networks",
+    "difficulty": "easy",
+    "question": "Why is TCP considered more reliable than UDP?",
+    "ideal_answer": "TCP provides reliable communication through acknowledgments, retransmissions, sequencing, and error checking, unlike connectionless UDP."
+  },
+  {
+    "id": 26,
+    "topic": "computer_networks",
+    "difficulty": "medium",
+    "question": "Why is HTTPS more secure than HTTP?",
+    "ideal_answer": "HTTPS encrypts communication using SSL/TLS, protecting transmitted data from interception and tampering."
+  },
+  {
+    "id": 27,
+    "topic": "computer_networks",
+    "difficulty": "medium",
+    "question": "What role does DNS play in internet communication?",
+    "ideal_answer": "DNS translates human-readable domain names into IP addresses so devices can locate servers across networks."
+  },
+  {
+    "id": 28,
+    "topic": "computer_networks",
+    "difficulty": "hard",
+    "question": "How does congestion control improve network stability?",
+    "ideal_answer": "Congestion control regulates packet transmission rates to prevent excessive traffic and maintain stable network performance."
+  },
+  {
+    "id": 29,
+    "topic": "computer_networks",
+    "difficulty": "medium",
+    "question": "Why are routers necessary in large-scale networks?",
+    "ideal_answer": "Routers direct packets between networks using routing tables, enabling scalable communication across interconnected systems."
+  },
+  {
+    "id": 30,
+    "topic": "computer_networks",
+    "difficulty": "easy",
+    "question": "What problem does the OSI model solve in network communication?",
+    "ideal_answer": "The OSI model standardizes communication functions into layers, improving interoperability between different systems and technologies."
+  },
+  {
+    "id": 31,
+    "topic": "computer_networks",
+    "difficulty": "medium",
+    "question": "How does packet switching improve network efficiency?",
+    "ideal_answer": "Packet switching allows multiple communications to share network resources efficiently by transmitting data in smaller packets."
+  },
+  {
+    "id": 32,
+    "topic": "computer_networks",
+    "difficulty": "hard",
+    "question": "Why is latency important in real-time applications like video calls?",
+    "ideal_answer": "High latency delays data delivery, causing lag and poor synchronization in real-time communication applications."
+  },
+  {
+    "id": 33,
+    "topic": "dsa",
+    "difficulty": "easy",
+    "question": "Why are hash tables efficient for lookup operations?",
+    "ideal_answer": "Hash tables use hash functions to map keys directly to storage locations, enabling average-case constant time lookup performance."
+  },
+  {
+    "id": 34,
+    "topic": "dsa",
+    "difficulty": "medium",
+    "question": "What trade-offs exist between arrays and linked lists?",
+    "ideal_answer": "Arrays provide fast indexed access but fixed sizing, while linked lists allow dynamic memory allocation but slower traversal and higher memory overhead."
+  },
+  {
+    "id": 35,
+    "topic": "dsa",
+    "difficulty": "medium",
+    "question": "Why is recursion useful for solving tree-based problems?",
+    "ideal_answer": "Recursion naturally matches hierarchical tree structures, simplifying traversal and divide-and-conquer operations."
+  },
+  {
+    "id": 36,
+    "topic": "dsa",
+    "difficulty": "hard",
+    "question": "Why can poor pivot selection reduce QuickSort performance?",
+    "ideal_answer": "Poor pivot selection can create unbalanced partitions, degrading QuickSort from average O(n log n) performance to worst-case O(n²)."
+  },
+  {
+    "id": 37,
+    "topic": "dsa",
+    "difficulty": "medium",
+    "question": "How do stacks help manage function calls internally?",
+    "ideal_answer": "Stacks store function call information such as local variables and return addresses, enabling proper execution flow and recursion handling."
+  },
+  {
+    "id": 38,
+    "topic": "dsa",
+    "difficulty": "easy",
+    "question": "Why are queues important in scheduling systems?",
+    "ideal_answer": "Queues maintain ordered task processing, making them useful for scheduling, buffering, and resource management systems."
+  },
+  {
+    "id": 39,
+    "topic": "dsa",
+    "difficulty": "medium",
+    "question": "How does binary search improve search efficiency?",
+    "ideal_answer": "Binary search repeatedly divides sorted data into halves, reducing search complexity from linear to logarithmic time."
+  },
+  {
+    "id": 40,
+    "topic": "dsa",
+    "difficulty": "hard",
+    "question": "What factors influence the choice of a data structure in system design?",
+    "ideal_answer": "The choice depends on operation complexity, memory usage, scalability, access patterns, and application-specific performance requirements."
+  },
+  {
+    "id": 41,
+    "topic": "machine_learning",
+    "difficulty": "easy",
+    "question": "Why is overfitting harmful in machine learning models?",
+    "ideal_answer": "Overfitting causes models to memorize training data patterns instead of generalizing well to unseen data."
+  },
+  {
+    "id": 42,
+    "topic": "machine_learning",
+    "difficulty": "medium",
+    "question": "Why is the train-test split important in model evaluation?",
+    "ideal_answer": "The train-test split evaluates how well a model generalizes to unseen data and helps detect overfitting."
+  },
+  {
+    "id": 43,
+    "topic": "machine_learning",
+    "difficulty": "medium",
+    "question": "How does regularization help reduce overfitting?",
+    "ideal_answer": "Regularization penalizes overly complex models, encouraging simpler patterns that generalize better to new data."
+  },
+  {
+    "id": 44,
+    "topic": "machine_learning",
+    "difficulty": "hard",
+    "question": "What trade-offs exist between bias and variance in machine learning?",
+    "ideal_answer": "High bias leads to underfitting, while high variance leads to overfitting, requiring a balance for optimal generalization."
+  },
+  {
+    "id": 45,
+    "topic": "machine_learning",
+    "difficulty": "medium",
+    "question": "Why are feature engineering and data preprocessing important in ML pipelines?",
+    "ideal_answer": "Proper preprocessing and feature engineering improve data quality and help models learn meaningful patterns more effectively."
+  },
+  {
+    "id": 46,
+    "topic": "machine_learning",
+    "difficulty": "easy",
+    "question": "How does supervised learning differ from unsupervised learning?",
+    "ideal_answer": "Supervised learning uses labeled data for prediction tasks, while unsupervised learning identifies hidden patterns in unlabeled data."
+  },
+  {
+    "id": 47,
+    "topic": "machine_learning",
+    "difficulty": "medium",
+    "question": "Why are embeddings useful in natural language processing systems?",
+    "ideal_answer": "Embeddings represent words or sentences as numerical vectors that capture semantic meaning and contextual relationships."
+  },
+  {
+    "id": 48,
+    "topic": "machine_learning",
+    "difficulty": "hard",
+    "question": "Why can deep neural networks require large amounts of training data?",
+    "ideal_answer": "Deep neural networks contain many parameters and require substantial data to learn generalized patterns without overfitting."
+  },
+  {
+    "id": 49,
+    "topic": "web_development",
+    "difficulty": "easy",
+    "question": "Why are REST APIs important in modern web applications?",
+    "ideal_answer": "REST APIs enable structured communication between frontend and backend systems using standardized HTTP methods and stateless interactions."
+  },
+  {
+    "id": 50,
+    "topic": "web_development",
+    "difficulty": "medium",
+    "question": "How does client-side rendering differ from server-side rendering?",
+    "ideal_answer": "Client-side rendering generates content in the browser using JavaScript, while server-side rendering generates HTML on the server before sending it to the client."
+  },
+  {
+    "id": 51,
+    "topic": "web_development",
+    "difficulty": "medium",
+    "question": "Why is authentication necessary in web applications?",
+    "ideal_answer": "Authentication verifies user identity and prevents unauthorized access to protected resources and application features."
+  },
+  {
+    "id": 52,
+    "topic": "web_development",
+    "difficulty": "hard",
+    "question": "Why can poor API design reduce system scalability and maintainability?",
+    "ideal_answer": "Poor API design creates inconsistent interfaces, tight coupling, and inefficient communication patterns that become difficult to scale and maintain."
+  },
+  {
+    "id": 53,
+    "topic": "web_development",
+    "difficulty": "medium",
+    "question": "How does CORS improve browser security?",
+    "ideal_answer": "CORS restricts cross-origin requests and controls which external domains can access server resources from browsers."
+  },
+  {
+    "id": 54,
+    "topic": "web_development",
+    "difficulty": "easy",
+    "question": "What is the difference between cookies and sessions?",
+    "ideal_answer": "Cookies store small pieces of data in the browser, while sessions store user-related data on the server and use session identifiers for tracking."
+  },
+  {
+    "id": 55,
+    "topic": "web_development",
+    "difficulty": "medium",
+    "question": "Why is state management important in large frontend applications?",
+    "ideal_answer": "State management helps maintain predictable data flow and consistent UI behavior across complex frontend components."
+  },
+  {
+    "id": 56,
+    "topic": "web_development",
+    "difficulty": "hard",
+    "question": "What trade-offs exist between monolithic and microservices architectures?",
+    "ideal_answer": "Monoliths simplify deployment and development initially, while microservices improve scalability and service independence but increase operational complexity."
+  },
+  {
+    "id": 57,
+    "topic": "java_python",
+    "difficulty": "easy",
+    "question": "Why are exception handling mechanisms important in programming languages?",
+    "ideal_answer": "Exception handling prevents abrupt program termination and enables graceful error recovery during runtime failures."
+  },
+  {
+    "id": 58,
+    "topic": "java_python",
+    "difficulty": "medium",
+    "question": "How does garbage collection improve memory management?",
+    "ideal_answer": "Garbage collection automatically frees unused memory, reducing memory leaks and simplifying resource management for developers."
+  },
+  {
+    "id": 59,
+    "topic": "java_python",
+    "difficulty": "medium",
+    "question": "Why are Python decorators useful in software design?",
+    "ideal_answer": "Decorators allow reusable behavior to be added to functions or methods without modifying their core implementation."
+  },
+  {
+    "id": 60,
+    "topic": "java_python",
+    "difficulty": "hard",
+    "question": "What challenges can arise in multithreaded programming?",
+    "ideal_answer": "Multithreaded systems can face race conditions, deadlocks, synchronization complexity, and inconsistent shared resource access."
+  },
+  {
+    "id": 61,
+    "topic": "java_python",
+    "difficulty": "medium",
+    "question": "How do Java interfaces differ from abstract classes?",
+    "ideal_answer": "Interfaces define behavioral contracts without implementation state, while abstract classes can provide both partial implementation and shared state."
+  },
+  {
+    "id": 62,
+    "topic": "java_python",
+    "difficulty": "easy",
+    "question": "Why are collections frameworks important in programming languages?",
+    "ideal_answer": "Collections frameworks provide efficient reusable data structures and algorithms for managing groups of objects."
+  },
+  {
+    "id": 63,
+    "topic": "java_python",
+    "difficulty": "medium",
+    "question": "How does dynamic typing differ from static typing?",
+    "ideal_answer": "Dynamic typing determines variable types at runtime, while static typing checks types during compilation before execution."
+  },
+  {
+    "id": 64,
+    "topic": "java_python",
+    "difficulty": "hard",
+    "question": "Why can improper resource management lead to performance issues in applications?",
+    "ideal_answer": "Improper resource management can cause memory leaks, excessive CPU usage, file handle exhaustion, and degraded system performance over time."
+  }
+]
