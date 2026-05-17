@@ -21,17 +21,17 @@ from backend.app.ml.evaluation.confidence_estimator import estimate_confidence
 # Weights
 # ---------------------------------------------------------------------------
 
-_SIMILARITY_WEIGHT  = 0.70
-_CONFIDENCE_WEIGHT  = 0.30
+_SIMILARITY_WEIGHT  = 0.80
+_CONFIDENCE_WEIGHT  = 0.20
 
 # ---------------------------------------------------------------------------
 # Quality thresholds
 # ---------------------------------------------------------------------------
 
 _THRESHOLDS: list[tuple[float, str]] = [
-    (0.85, "excellent"),
-    (0.70, "good"),
-    (0.50, "average"),
+    (0.78, "excellent"),
+    (0.62, "good"),
+    (0.42, "average"),
     (0.00, "weak"),
 ]
 

@@ -167,6 +167,37 @@ def load_training_samples() -> list[dict]:
     samples          = merge_datasets(question_bank, answer_variants)
     return [s.to_dict() for s in samples]
 
+def load_interview_questions() -> list[dict]:
+    """
+    Load unique interview questions for runtime interview sessions.
+
+    Returns:
+    [
+        {
+            "id": int,
+            "topic": str,
+            "difficulty": str,
+            "question": str,
+            "ideal_answer": str,
+        }
+    ]
+    """
+
+    question_bank = load_question_bank()
+
+    questions: list[dict] = []
+
+    for qid, question_data in question_bank.items():
+        questions.append({
+            "id": qid,
+            "topic": question_data["topic"],
+            "difficulty": question_data["difficulty"],
+            "question": question_data["question"],
+            "ideal_answer": question_data["ideal_answer"],
+        })
+
+    return questions[:5]
+
 if __name__ == "__main__":
     samples = load_training_samples()
 

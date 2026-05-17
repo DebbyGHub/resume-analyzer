@@ -20,7 +20,7 @@ from typing import Literal
 # ---------------------------------------------------------------------------
 
 # Word count thresholds
-_MIN_WORDS_FULL_CONFIDENCE  = 10   # answers below this get a length penalty
+_MIN_WORDS_FULL_CONFIDENCE  = 6   # answers below this get a length penalty
 _MIN_WORDS_LOW_CONFIDENCE   = 4    # answers below this get a severe penalty
 _EMPTY_THRESHOLD_WORDS      = 1    # 0 or 1 word → treat as empty
 
@@ -87,7 +87,7 @@ def calculate_length_penalty(candidate_answer: str) -> float:
     if words <= _EMPTY_THRESHOLD_WORDS:
         return 1.0
     if words < _MIN_WORDS_LOW_CONFIDENCE:
-        return 0.60
+        return 0.35
     if words < _MIN_WORDS_FULL_CONFIDENCE:
         # Linear interpolation: 0.30 at 4 words → 0.0 at 10 words
         progress = (words - _MIN_WORDS_LOW_CONFIDENCE) / (
@@ -139,7 +139,7 @@ def estimate_confidence(
     # ── Vague phrase detection ───────────────────────────────────
     vague_penalty = 0.0
     if _is_vague(candidate_answer):
-        vague_penalty = 0.25
+        vague_penalty = 0.15
         flags.append("vague_answer")
 
     # ── Confidence score ─────────────────────────────────────────

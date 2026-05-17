@@ -8,6 +8,7 @@ from backend.app.core.database import engine, Base
 
 from backend.app.api import health, resume
 from backend.app.api.routes import interview
+from backend.app.api.routes import questions
 
 # Import models so SQLAlchemy registers them before table creation
 import backend.app.models.orm_models  # noqa: F401
@@ -27,7 +28,9 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["http://localhost:5173",
+                   "http://localhost:5174"
+                   ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -40,6 +43,12 @@ app.include_router(resume.router, prefix="/api/resume", tags=["resume"])
 # Interview evaluation routes
 app.include_router(
     interview.router,
+    prefix="/api/interview",
+    tags=["interview"],
+)
+
+app.include_router(
+    questions.router,
     prefix="/api/interview",
     tags=["interview"],
 )
