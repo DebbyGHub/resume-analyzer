@@ -47,13 +47,29 @@ class InterviewQuestion(BaseModel):
     response_model=list[InterviewQuestion],
     summary="Get interview questions",
     description=(
-        "Returns the full list of available interview questions "
-        "from the dataset loader."
+        "Returns a targeted interview question set based on "
+        "optional resume skills."
     ),
 )
-def get_questions() -> list[InterviewQuestion]:
+def get_questions(
+    skills: str | None = None,
+) -> list[InterviewQuestion]:
 
-    raw_questions = select_interview_questions(limit=5)
+    parsed_skills = (
+        [s.strip() for s in skills.split(",")]
+        if skills
+        else None
+    )
+
+    raw_questions = select_interview_questions(
+        skills=parsed_skills,
+        limit=5,
+    )
+
+    print("SKILLS RECEIVED:", parsed_skills)
+
+    for q in raw_questions:
+        print(q["topic"], "→", q["question"])
 
     return [
         InterviewQuestion(**question)

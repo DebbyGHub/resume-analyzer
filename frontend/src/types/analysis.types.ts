@@ -57,6 +57,9 @@ export interface ResumeAnalysisResponse {
 
   // Transparency
   parser_warnings: string[];
+
+  // Skills
+  extracted_skills: string[];
 }
 
 // ─── Form / UI types ──────────────────────────────────────────────────────────

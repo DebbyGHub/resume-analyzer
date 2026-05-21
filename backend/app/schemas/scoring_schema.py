@@ -46,6 +46,7 @@ class ResumeAnalysisResponse(BaseModel):
     score_breakdown:   ScoreBreakdown
     matched_keywords:  list[str]
     missing_keywords:  list[str]
+    extracted_skills: list[str]
 
     # Feedback
     feedback: list[FeedbackItem] = []

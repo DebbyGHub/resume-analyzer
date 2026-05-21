@@ -97,9 +97,18 @@ export async function evaluateInterviewAnswer(
  * Fetches the interview question set from the backend.
  * Backend owns question selection and dataset management.
  */
-export async function getInterviewQuestions(): Promise<InterviewQuestionsResult> {
+export async function getInterviewQuestions(
+  skills?: string[],
+): Promise<InterviewQuestionsResult> {
   try {
-    const response = await fetch(`${BASE_URL}/questions`);
+    let url = `${BASE_URL}/questions`;
+
+    if (skills && skills.length > 0) {
+      const query = encodeURIComponent(skills.join(","));
+      url += `?skills=${query}`;
+    }
+
+    const response = await fetch(url);
 
     if (!response.ok) {
       const detail = await response.text().catch(() => "Unknown server error");

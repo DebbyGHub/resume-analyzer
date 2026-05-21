@@ -32,6 +32,7 @@ from backend.app.services.parser.text_cleaner import clean_text
 from backend.app.services.parser.section_parser import parse_sections, compute_section_counts
 from backend.app.services.scoring.score_calculator import calculate_score
 from backend.app.services.scoring.feedback_generator import generate_feedback
+from backend.app.services.analyzer.skill_extractor import extract_skills
 
 
 def _collect_parser_warnings(
@@ -90,6 +91,7 @@ def run_analysis(
 
     # Step 2 — Clean
     cleaned_text: str = clean_text(raw_text)
+    extracted_skills = extract_skills(cleaned_text)
 
     # Step 3 — Parse
     detected_sections: DetectedSections = parse_sections(cleaned_text)
@@ -134,4 +136,5 @@ def run_analysis(
         section_counts=section_counts,
         raw_text=cleaned_text,
         parser_warnings=parser_warnings,
+        extracted_skills=extracted_skills,
     )

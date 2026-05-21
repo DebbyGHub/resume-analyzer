@@ -109,7 +109,13 @@ function buildSummary(
 
 // ─── InterviewPage ────────────────────────────────────────────────────────────
 
-export function InterviewPage() {
+interface InterviewPageProps {
+  extractedSkills: string[];
+}
+
+export function InterviewPage({
+  extractedSkills,
+}: InterviewPageProps) {
   const [questions, setQuestions] = useState<InterviewQuestion[]>([]);
   const [questionsLoading, setQuestionsLoading] = useState(true);
 
@@ -134,7 +140,7 @@ export function InterviewPage() {
 
   useEffect(() => {
     async function loadQuestions() {
-      const response = await getInterviewQuestions();
+      const response = await getInterviewQuestions(extractedSkills);
 
       if (!response.ok) {
         console.error(response.error);
