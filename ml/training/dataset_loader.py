@@ -9,11 +9,12 @@ Each sample:
     "question":          str,
     "ideal_answer":      str,
     "candidate_answer":  str,
-    "label":             float,
     "quality":           str,
     "topic":             str,
     "difficulty":        str,
 }
+
+Quality labels are converted dynamically into numeric scores during runtime.
 """
 
 import json
@@ -24,89 +25,121 @@ from pathlib import Path
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Paths — relative to this file so no absolute paths are hardcoded
+# Paths
 # ---------------------------------------------------------------------------
 
 _DATASETS_DIR = Path(__file__).resolve().parent.parent / "datasets"
-_QUESTION_BANK_PATH  = _DATASETS_DIR / "question_bank.json"
+
+_QUESTION_BANK_PATH = _DATASETS_DIR / "question_bank.json"
 _ANSWER_VARIANTS_PATH = _DATASETS_DIR / "answer_variants.json"
 
+# ---------------------------------------------------------------------------
+# Quality → numeric score mapping
+# ---------------------------------------------------------------------------
+
+QUALITY_TO_SCORE = {
+    "weak": 0.25,
+    "average": 0.50,
+    "good": 0.75,
+    "excellent": 1.00,
+}
 
 # ---------------------------------------------------------------------------
-# Dataclass for a single training sample
+# Dataclass
 # ---------------------------------------------------------------------------
 
 @dataclass
 class TrainingSample:
-    question:         str
-    ideal_answer:     str
+    question: str
+    ideal_answer: str
     candidate_answer: str
-    label:            float
-    quality:          str
-    topic:            str
-    difficulty:       str
+    quality: str
+    label: float
+    topic: str
+    difficulty: str
 
     def to_dict(self) -> dict:
         return {
-            "question":         self.question,
-            "ideal_answer":     self.ideal_answer,
+            "question": self.question,
+            "ideal_answer": self.ideal_answer,
             "candidate_answer": self.candidate_answer,
-            "label":            self.label,
-            "quality":          self.quality,
-            "topic":            self.topic,
-            "difficulty":       self.difficulty,
+            "quality": self.quality,
+            "label": self.label,
+            "topic": self.topic,
+            "difficulty": self.difficulty,
         }
 
-
 # ---------------------------------------------------------------------------
-# Loaders
+# Load question bank
 # ---------------------------------------------------------------------------
 
 def load_question_bank(path: Path = _QUESTION_BANK_PATH) -> dict[int, dict]:
     """
-    Load question_bank.json and return a dict keyed by question_id.
+    Load question_bank.json and return dict keyed by question ID.
     """
+
     if not path.exists():
         raise FileNotFoundError(f"question_bank not found: {path}")
 
     raw: list[dict] = json.loads(path.read_text(encoding="utf-8"))
 
     bank: dict[int, dict] = {}
+
     for entry in raw:
         qid = entry["id"]
+
         if qid in bank:
-            logger.warning("Duplicate question_id %d in question_bank — skipping.", qid)
+            logger.warning(
+                "Duplicate question_id %d in question_bank — skipping.",
+                qid,
+            )
             continue
+
         bank[qid] = entry
 
     logger.info("Loaded %d questions from question_bank.", len(bank))
+
     return bank
 
+# ---------------------------------------------------------------------------
+# Load answer variants
+# ---------------------------------------------------------------------------
 
-def load_answer_variants(path: Path = _ANSWER_VARIANTS_PATH) -> dict[int, list[dict]]:
+def load_answer_variants(
+    path: Path = _ANSWER_VARIANTS_PATH,
+) -> dict[int, list[dict]]:
     """
-    Load answer_variants.json and return a dict keyed by question_id.
-    Each value is the list of answer dicts for that question.
+    Load answer_variants.json and return dict keyed by question ID.
     """
+
     if not path.exists():
         raise FileNotFoundError(f"answer_variants not found: {path}")
 
     raw: list[dict] = json.loads(path.read_text(encoding="utf-8"))
 
     variants: dict[int, list[dict]] = {}
+
     for entry in raw:
         qid = entry["question_id"]
+
         if qid in variants:
-            logger.warning("Duplicate question_id %d in answer_variants — skipping.", qid)
+            logger.warning(
+                "Duplicate question_id %d in answer_variants — skipping.",
+                qid,
+            )
             continue
+
         variants[qid] = entry["answers"]
 
-    logger.info("Loaded answer variants for %d questions.", len(variants))
+    logger.info(
+        "Loaded answer variants for %d questions.",
+        len(variants),
+    )
+
     return variants
 
-
 # ---------------------------------------------------------------------------
-# Merge + flatten
+# Merge datasets
 # ---------------------------------------------------------------------------
 
 def merge_datasets(
@@ -114,73 +147,102 @@ def merge_datasets(
     answer_variants: dict[int, list[dict]],
 ) -> list[TrainingSample]:
     """
-    Join question_bank and answer_variants on question_id.
-    Skips question IDs present in one file but not the other.
+    Merge question_bank and answer_variants into flat training samples.
     """
+
     samples: list[TrainingSample] = []
+
     missing_answers = 0
     missing_questions = 0
 
     for qid, question_data in question_bank.items():
+
         if qid not in answer_variants:
-            logger.warning("question_id %d has no answer variants — skipping.", qid)
+            logger.warning(
+                "question_id %d has no answer variants — skipping.",
+                qid,
+            )
             missing_answers += 1
             continue
 
         for answer in answer_variants[qid]:
-            samples.append(TrainingSample(
-                question         = question_data["question"],
-                ideal_answer     = question_data["ideal_answer"],
-                candidate_answer = answer["candidate_answer"],
-                label            = float(answer["label"]),
-                quality          = answer["quality"],
-                topic            = question_data["topic"],
-                difficulty       = question_data["difficulty"],
-            ))
+
+            quality = answer["quality"].strip().lower()
+
+            if quality not in QUALITY_TO_SCORE:
+                logger.warning(
+                    "Unknown quality '%s' for question_id %d — skipping.",
+                    quality,
+                    qid,
+                )
+                continue
+
+            samples.append(
+                TrainingSample(
+                    question=question_data["question"],
+                    ideal_answer=question_data["ideal_answer"],
+                    candidate_answer=answer["candidate_answer"],
+                    quality=quality,
+                    label=QUALITY_TO_SCORE[quality],
+                    topic=question_data["topic"],
+                    difficulty=question_data["difficulty"],
+                )
+            )
 
     for qid in answer_variants:
+
         if qid not in question_bank:
-            logger.warning("question_id %d in answer_variants has no question — skipping.", qid)
+            logger.warning(
+                "question_id %d in answer_variants has no question — skipping.",
+                qid,
+            )
             missing_questions += 1
 
     if missing_answers or missing_questions:
         logger.warning(
             "Merge completed with %d missing answer sets and %d missing questions.",
-            missing_answers, missing_questions,
+            missing_answers,
+            missing_questions,
         )
 
-    logger.info("Merged dataset: %d training samples.", len(samples))
+    logger.info(
+        "Merged dataset: %d training samples.",
+        len(samples),
+    )
+
     return samples
 
-
 # ---------------------------------------------------------------------------
-# Public entry point
+# Public loader
 # ---------------------------------------------------------------------------
 
 def load_training_samples() -> list[dict]:
     """
-    Full pipeline: load → merge → flatten to list[dict].
-    Returns 256 samples for the 64-question / 4-answer-per-question dataset.
+    Full pipeline:
+    load → merge → flatten to list[dict]
+
+    Expected:
+    250 questions × 4 answers = 1000 samples
     """
-    question_bank    = load_question_bank()
-    answer_variants  = load_answer_variants()
-    samples          = merge_datasets(question_bank, answer_variants)
-    return [s.to_dict() for s in samples]
+
+    question_bank = load_question_bank()
+
+    answer_variants = load_answer_variants()
+
+    samples = merge_datasets(
+        question_bank,
+        answer_variants,
+    )
+
+    return [sample.to_dict() for sample in samples]
+
+# ---------------------------------------------------------------------------
+# Runtime interview question loader
+# ---------------------------------------------------------------------------
 
 def load_interview_questions() -> list[dict]:
     """
     Load unique interview questions for runtime interview sessions.
-
-    Returns:
-    [
-        {
-            "id": int,
-            "topic": str,
-            "difficulty": str,
-            "question": str,
-            "ideal_answer": str,
-        }
-    ]
     """
 
     question_bank = load_question_bank()
@@ -188,6 +250,7 @@ def load_interview_questions() -> list[dict]:
     questions: list[dict] = []
 
     for qid, question_data in question_bank.items():
+
         questions.append({
             "id": qid,
             "topic": question_data["topic"],
@@ -196,12 +259,19 @@ def load_interview_questions() -> list[dict]:
             "ideal_answer": question_data["ideal_answer"],
         })
 
-    return questions[:5]
+    return questions
+
+# ---------------------------------------------------------------------------
+# Debug entry point
+# ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
+
+    logging.basicConfig(level=logging.INFO)
+
     samples = load_training_samples()
 
-    print(f"Loaded {len(samples)} training samples.\n")
+    print(f"\nLoaded {len(samples)} training samples.\n")
 
     if samples:
         print("First sample:\n")

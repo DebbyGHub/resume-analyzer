@@ -1,21 +1,22 @@
 """
 question_selector.py
 
-Runtime interview question selection engine.
+Resume-aware runtime interview question selector.
 
-Selects a small, targeted interview set from the curated dataset.
-This is NOT a generator — questions are always chosen from existing data.
-This is NOT the semantic evaluator — it does not call USE or cosine similarity.
+This module:
+- selects interview questions ONLY from the curated dataset
+- maps resume skills → dataset topics
+- prioritises relevant technical domains
+- balances difficulty levels
+- prevents repetitive topic clustering
 
-Depends on:
-    ml/training/dataset_loader.py → load_question_bank()
+This module does NOT:
+- generate questions
+- evaluate semantic similarity
+- use embeddings
 
-Skill-to-topic mapping
-----------------------
-The dataset does not carry a "skills" field.
-Skills are mapped to canonical dataset topics via SKILL_TOPIC_MAP.
-When skills are provided, questions from matching topics are prioritised.
-This map is the single place to extend as the dataset grows.
+Dataset source:
+    ml/training/dataset_loader.py
 """
 
 import random
@@ -24,10 +25,20 @@ from pathlib import Path
 from typing import Optional
 
 # ---------------------------------------------------------------------------
-# Path bootstrap — allow import from both backend and ml roots
+# Path bootstrap
 # ---------------------------------------------------------------------------
 
-_ML_ROOT = Path(__file__).resolve().parent.parent.parent.parent.parent / "ml"
+_ML_ROOT = (
+    Path(__file__)
+    .resolve()
+    .parent
+    .parent
+    .parent
+    .parent
+    .parent
+    / "ml"
+)
+
 if str(_ML_ROOT) not in sys.path:
     sys.path.insert(0, str(_ML_ROOT))
 
@@ -35,129 +46,240 @@ from ml.training.dataset_loader import load_question_bank  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # Skill → topic mapping
-# Keys are lowercase skill/technology names the frontend might send.
-# Values are canonical topic strings from question_bank.json.
 # ---------------------------------------------------------------------------
 
 SKILL_TOPIC_MAP: dict[str, str] = {
-    # OOP
-    "java": "oop", "python": "oop", "c++": "oop", "c#": "oop",
-    "object oriented": "oop", "oop": "oop", "design patterns": "oop",
-    "inheritance": "oop", "polymorphism": "oop", "encapsulation": "oop",
 
-    # DBMS
-    "sql": "dbms", "mysql": "dbms", "postgresql": "dbms",
-    "sqlite": "dbms", "database": "dbms", "dbms": "dbms",
-    "nosql": "dbms", "mongodb": "dbms", "orm": "dbms",
+    # Core CS
+    "oop": "oop",
+    "object oriented programming": "oop",
 
-    # DSA
-    "data structures": "dsa", "algorithms": "dsa", "dsa": "dsa",
-    "sorting": "dsa", "searching": "dsa", "trees": "dsa",
-    "graphs": "dsa", "linked list": "dsa", "hash table": "dsa",
+    "dbms": "dbms",
+    "database": "dbms",
 
-    # Operating Systems
-    "os": "operating_systems", "operating systems": "operating_systems",
-    "linux": "operating_systems", "processes": "operating_systems",
-    "threads": "operating_systems", "concurrency": "operating_systems",
-    "memory management": "operating_systems",
+    "dsa": "dsa",
+    "algorithms": "dsa",
+    "data structures": "dsa",
 
-    # Computer Networks
-    "networking": "computer_networks", "computer networks": "computer_networks",
-    "tcp": "computer_networks", "http": "computer_networks",
-    "dns": "computer_networks", "rest": "computer_networks",
-    "api": "computer_networks",
+    "operating systems": "operating_systems",
+    "os": "operating_systems",
 
-    # Machine Learning
-    "machine learning": "machine_learning", "ml": "machine_learning",
-    "deep learning": "machine_learning", "tensorflow": "machine_learning",
-    "pytorch": "machine_learning", "scikit-learn": "machine_learning",
-    "neural networks": "machine_learning", "nlp": "machine_learning",
-    "data science": "machine_learning",
+    "computer networks": "computer_networks",
+    "networking": "computer_networks",
 
-    # Web Development
-    "react": "web_development", "angular": "web_development",
-    "vue": "web_development", "javascript": "web_development",
-    "typescript": "web_development", "html": "web_development",
-    "css": "web_development", "web development": "web_development",
-    "frontend": "web_development", "backend": "web_development",
-    "fastapi": "web_development", "flask": "web_development",
-    "django": "web_development", "node": "web_development",
+    # AI / ML
+    "machine learning": "machine_learning",
+    "ml": "machine_learning",
+    "deep learning": "deep_learning",
+    "nlp": "nlp",
+    "tensorflow": "tensorflow",
+    "pytorch": "pytorch",
+    "cnn": "cnn",
+    "computer vision": "computer_vision",
 
-    # Java / Python
-    "java collections": "java_python", "python decorators": "java_python",
-    "garbage collection": "java_python", "multithreading": "java_python",
-    "exceptions": "java_python", "java_python": "java_python",
+    # Backend / APIs
+    "api": "apis",
+    "rest": "rest",
+    "fastapi": "fastapi",
+    "flask": "flask",
+    "nodejs": "nodejs",
+    "node.js": "nodejs",
+    "express": "express",
+    "jwt": "jwt",
+    "oauth": "oauth",
+    "websockets": "websockets",
+    "redis": "redis",
+
+    # Frontend
+    "react": "react",
+    "javascript": "javascript",
+    "typescript": "typescript",
+    "tailwind": "tailwind_css",
+    "tailwind css": "tailwind_css",
+    "html": "html",
+    "css": "css",
+    "web development": "web_development",
+
+    # Languages
+    "python": "python",
+    "java": "java",
+    "c": "c",
+    "c++": "c++",
+    "c#": "c#",
+    "php": "php",
+    "rust": "rust",
+    "kotlin": "kotlin",
+
+    # Databases
+    "sql": "sql",
+    "mysql": "mysql",
+    "postgresql": "postgresql",
+    "mongodb": "mongodb",
+    "sqlite": "sqlite",
+    "oracle": "oracle",
+
+    # DevOps / Deployment
+    "docker": "docker",
+    "git": "git",
+    "github": "github",
+    "linux": "linux",
+    "deployment": "deployment",
+    "vercel": "vercel",
+    "render": "render",
+    "postman": "postman",
+
+    # Cloud
+    "aws": "aws",
+    "azure": "microsoft_azure",
+    "microsoft azure": "microsoft_azure",
+    "gcp": "gcp",
+    "google cloud": "gcp",
+    "firebase": "firebase",
+    "supabase": "supabase",
+    "cloud": "cloud_computing",
+    "cloud computing": "cloud_computing",
+
+    # Security
+    "cybersecurity": "cybersecurity",
+
+    # Data
+    "json": "json",
 }
+
+# ---------------------------------------------------------------------------
+# Difficulty balancing
+# ---------------------------------------------------------------------------
+
+_DIFFICULTY_ORDER = [
+    "easy",
+    "medium",
+    "hard",
+]
 
 # ---------------------------------------------------------------------------
 # Internal helpers
 # ---------------------------------------------------------------------------
 
-_ALL_TOPICS = [
-    "oop", "dbms", "dsa", "operating_systems",
-    "computer_networks", "machine_learning", "web_development", "java_python",
-]
-
-
 def _load_questions() -> list[dict]:
-    """Return all questions as flat dicts from the question bank."""
+
     bank = load_question_bank()
+
     return list(bank.values())
 
+# ---------------------------------------------------------------------------
 
-def _resolve_topics(skills: list[str]) -> list[str]:
-    """Map skill strings to unique canonical topics."""
-    topics: list[str] = []
+def _resolve_topics(
+    skills: list[str],
+) -> list[str]:
+
+    resolved: list[str] = []
+
     seen: set[str] = set()
+
     for skill in skills:
-        topic = SKILL_TOPIC_MAP.get(skill.lower().strip())
-        if topic and topic not in seen:
-            topics.append(topic)
-            seen.add(topic)
-    return topics
 
+        topic = SKILL_TOPIC_MAP.get(
+            skill.lower().strip()
+        )
 
-def _questions_for_topics(
+        if not topic:
+            continue
+
+        if topic in seen:
+            continue
+
+        resolved.append(topic)
+
+        seen.add(topic)
+
+    return resolved
+
+# ---------------------------------------------------------------------------
+
+def _group_by_difficulty(
     questions: list[dict],
-    topics: list[str],
-) -> list[dict]:
-    """Return questions whose topic is in `topics`, preserving order."""
-    topic_set = set(topics)
-    return [q for q in questions if q.get("topic") in topic_set]
+) -> dict[str, list[dict]]:
 
+    grouped = {
+        "easy": [],
+        "medium": [],
+        "hard": [],
+    }
 
-def _balanced_generic_set(questions: list[dict], limit: int) -> list[dict]:
-    """
-    Select a balanced set when no skills are provided.
-    Picks one question per topic (cycling through topics) until limit is reached.
-    """
-    by_topic: dict[str, list[dict]] = {}
     for q in questions:
-        topic = q.get("topic", "")
-        by_topic.setdefault(topic, []).append(q)
 
-    # Shuffle within each topic for variety between sessions
-    for lst in by_topic.values():
-        random.shuffle(lst)
+        difficulty = q.get("difficulty", "medium")
+
+        grouped.setdefault(difficulty, []).append(q)
+
+    return grouped
+
+# ---------------------------------------------------------------------------
+
+def _balanced_skill_selection(
+    questions: list[dict],
+    limit: int,
+) -> list[dict]:
+
+    grouped = _group_by_difficulty(questions)
+
+    for difficulty_questions in grouped.values():
+        random.shuffle(difficulty_questions)
 
     selected: list[dict] = []
-    topic_iters = {t: iter(qs) for t, qs in by_topic.items()}
-    active_topics = list(topic_iters.keys())
 
-    while len(selected) < limit and active_topics:
-        exhausted = []
-        for topic in list(active_topics):
-            if len(selected) >= limit:
-                break
-            try:
-                selected.append(next(topic_iters[topic]))
-            except StopIteration:
-                exhausted.append(topic)
-        for t in exhausted:
-            active_topics.remove(t)
+    # Try balanced selection:
+    # easy → medium → hard cycling
+
+    while len(selected) < limit:
+
+        added = False
+
+        for difficulty in _DIFFICULTY_ORDER:
+
+            if grouped[difficulty]:
+
+                selected.append(
+                    grouped[difficulty].pop()
+                )
+
+                added = True
+
+                if len(selected) >= limit:
+                    break
+
+        if not added:
+            break
 
     return selected
 
+# ---------------------------------------------------------------------------
+
+def _fill_remaining_questions(
+    selected: list[dict],
+    all_questions: list[dict],
+    limit: int,
+) -> list[dict]:
+
+    existing_ids = {
+        q["id"]
+        for q in selected
+    }
+
+    remaining = [
+        q
+        for q in all_questions
+        if q["id"] not in existing_ids
+    ]
+
+    random.shuffle(remaining)
+
+    needed = limit - len(selected)
+
+    if needed > 0:
+        selected.extend(remaining[:needed])
+
+    return selected
 
 # ---------------------------------------------------------------------------
 # Public API
@@ -165,44 +287,98 @@ def _balanced_generic_set(questions: list[dict], limit: int) -> list[dict]:
 
 def select_interview_questions(
     skills: Optional[list[str]] = None,
-    limit: int = 5,
+    limit: int = 10,
 ) -> list[dict]:
     """
-    Select an interview question set from the curated dataset.
+    Select resume-aware interview questions.
 
     Args:
-        skills: Optional list of skill/technology strings from the candidate's
-                resume. Used to prioritise questions from matching topics.
-                Example: ["python", "react", "sql"]
-        limit:  Maximum number of questions to return. Defaults to 5.
+        skills:
+            Resume skills extracted from resume analyzer.
+
+        limit:
+            Number of interview questions.
 
     Returns:
-        List of question dicts (id, topic, difficulty, question, ideal_answer).
-        Length is at most `limit` and at most the total dataset size.
-
-    Selection strategy:
-        With skills:    Questions from skill-matched topics first.
-                        Remaining slots filled from unmatched topics.
-        Without skills: One question per topic, round-robin, shuffled.
+        List of question dicts.
     """
+
     limit = max(1, limit)
+
     all_questions = _load_questions()
 
+    random.shuffle(all_questions)
+
+    # -----------------------------------------------------------------------
+    # No resume skills → generic balanced interview
+    # -----------------------------------------------------------------------
+
     if not skills:
-        return _balanced_generic_set(all_questions, limit)
 
-    # ── Skill-targeted selection ──────────────────────────────────
+        return _balanced_skill_selection(
+            all_questions,
+            limit,
+        )
+
+    # -----------------------------------------------------------------------
+    # Resume-aware selection
+    # -----------------------------------------------------------------------
+
     matched_topics = _resolve_topics(skills)
-    matched_qs     = _questions_for_topics(all_questions, matched_topics)
-    remaining_qs   = [q for q in all_questions if q not in matched_qs]
 
-    # Shuffle both pools for session variety
-    random.shuffle(matched_qs)
-    random.shuffle(remaining_qs)
+    matched_questions = [
+        q
+        for q in all_questions
+        if q.get("topic") in matched_topics
+    ]
 
-    # Fill from matched first, then pad with unmatched
-    selected = matched_qs[:limit]
-    if len(selected) < limit:
-        selected += remaining_qs[: limit - len(selected)]
+    # -----------------------------------------------------------------------
+    # Balanced technical selection
+    # -----------------------------------------------------------------------
+
+    selected = _balanced_skill_selection(
+        matched_questions,
+        limit,
+    )
+
+    # -----------------------------------------------------------------------
+    # Fill remaining slots
+    # -----------------------------------------------------------------------
+
+    selected = _fill_remaining_questions(
+        selected,
+        all_questions,
+        limit,
+    )
 
     return selected
+
+# ---------------------------------------------------------------------------
+# Debug
+# ---------------------------------------------------------------------------
+
+if __name__ == "__main__":
+
+    example_skills = [
+        "python",
+        "react",
+        "tensorflow",
+        "docker",
+        "aws",
+    ]
+
+    questions = select_interview_questions(
+        skills=example_skills,
+        limit=10,
+    )
+
+    print("\nSelected Questions:\n")
+
+    for i, q in enumerate(questions, start=1):
+
+        print(
+            f"{i}. "
+            f"[{q['topic']}] "
+            f"[{q['difficulty']}] "
+            f"{q['question']}"
+        )

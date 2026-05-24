@@ -29,9 +29,9 @@ _CONFIDENCE_WEIGHT  = 0.20
 # ---------------------------------------------------------------------------
 
 _THRESHOLDS: list[tuple[float, str]] = [
-    (0.78, "excellent"),
-    (0.62, "good"),
-    (0.42, "average"),
+    (0.72, "excellent"),
+    (0.56, "good"),
+    (0.38, "average"),
     (0.00, "weak"),
 ]
 

@@ -19,13 +19,11 @@ export interface SessionHeaderProps {
 const STATUS_CONFIG = {
   active: {
     label: "Active",
-    dot: "bg-score-high animate-pulse",
     text: "text-score-high",
   },
-  paused: { label: "Paused", dot: "bg-score-mid", text: "text-score-mid" },
+  paused: { label: "Paused", text: "text-score-mid" },
   completed: {
     label: "Completed",
-    dot: "bg-text-muted",
     text: "text-text-secondary",
   },
 } as const;
@@ -58,11 +56,6 @@ export function SessionHeader({
     >
       {/* Left — title + status */}
       <div className="flex items-center gap-3 min-w-0">
-        {/* Status dot */}
-        <span
-          className={`h-2 w-2 rounded-full shrink-0 ${cfg.dot}`}
-          aria-hidden
-        />
 
         {/* Title */}
         <span className="font-display font-semibold text-sm text-text-primary truncate">

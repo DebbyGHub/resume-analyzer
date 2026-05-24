@@ -325,126 +325,1474 @@
     "id": 47,
     "topic": "machine_learning",
     "difficulty": "medium",
-    "question": "Why are embeddings useful in natural language processing systems?",
-    "ideal_answer": "Embeddings represent words or sentences as numerical vectors that capture semantic meaning and contextual relationships."
+    "question": "Why is feature scaling important for certain machine learning algorithms?",
+    "ideal_answer": "Feature scaling ensures numerical features contribute proportionally during training and improves convergence for distance-based and gradient-based algorithms."
   },
   {
     "id": 48,
     "topic": "machine_learning",
     "difficulty": "hard",
+    "question": "Why can imbalanced datasets negatively impact classification models?",
+    "ideal_answer": "Imbalanced datasets bias models toward majority classes, reducing performance and predictive accuracy on minority class examples."
+  },
+  {
+    "id": 49,
+    "topic": "nlp",
+    "difficulty": "medium",
+    "question": "Why are embeddings useful in natural language processing systems?",
+    "ideal_answer": "Embeddings represent words or sentences as numerical vectors that capture semantic meaning and contextual relationships."
+  },
+  {
+    "id": 50,
+    "topic": "nlp",
+    "difficulty": "medium",
+    "question": "How do tokenization techniques help NLP systems process text?",
+    "ideal_answer": "Tokenization breaks text into smaller units such as words or subwords, enabling NLP models to analyze and represent language computationally."
+  },
+  {
+    "id": 51,
+    "topic": "nlp",
+    "difficulty": "hard",
+    "question": "Why are transformer architectures effective in modern NLP systems?",
+    "ideal_answer": "Transformers use self-attention mechanisms to capture long-range contextual relationships efficiently across sequences of text."
+  },
+  {
+    "id": 52,
+    "topic": "nlp",
+    "difficulty": "medium",
+    "question": "Why are attention mechanisms important in sequence models?",
+    "ideal_answer": "Attention mechanisms allow models to focus on the most relevant parts of input sequences during prediction and language understanding tasks."
+  },
+  {
+    "id": 53,
+    "topic": "nlp",
+    "difficulty": "easy",
+    "question": "Why is text preprocessing important in NLP pipelines?",
+    "ideal_answer": "Text preprocessing removes noise and standardizes language data, improving NLP model performance and consistency."
+  },
+
+  {
+    "id": 54,
+    "topic": "deep_learning",
+    "difficulty": "hard",
     "question": "Why can deep neural networks require large amounts of training data?",
     "ideal_answer": "Deep neural networks contain many parameters and require substantial data to learn generalized patterns without overfitting."
   },
   {
-    "id": 49,
-    "topic": "web_development",
+    "id": 55,
+    "topic": "deep_learning",
+    "difficulty": "medium",
+    "question": "Why are activation functions important in neural networks?",
+    "ideal_answer": "Activation functions introduce non-linearity into neural networks, enabling them to learn complex patterns beyond simple linear relationships."
+  },
+  {
+    "id": 56,
+    "topic": "deep_learning",
+    "difficulty": "hard",
+    "question": "Why can vanishing gradients make deep neural networks difficult to train?",
+    "ideal_answer": "Vanishing gradients reduce weight updates in earlier network layers, making learning slow or ineffective in deep neural networks."
+  },
+  {
+    "id": 57,
+    "topic": "deep_learning",
+    "difficulty": "medium",
+    "question": "How does dropout help improve neural network generalization?",
+    "ideal_answer": "Dropout randomly disables neurons during training, reducing overfitting and encouraging neural networks to learn more robust feature representations."
+  },
+  {
+    "id": 58,
+    "topic": "deep_learning",
+    "difficulty": "medium",
+    "question": "Why are batch normalization layers useful in deep neural networks?",
+    "ideal_answer": "Batch normalization stabilizes training by normalizing intermediate activations, improving convergence speed and training stability."
+  },
+
+  {
+    "id": 59,
+    "topic": "tensorflow",
+    "difficulty": "medium",
+    "question": "Why are tensors important in TensorFlow?",
+    "ideal_answer": "Tensors are multidimensional data structures used to efficiently represent and process numerical data in TensorFlow models."
+  },
+  {
+    "id": 60,
+    "topic": "tensorflow",
+    "difficulty": "hard",
+    "question": "How does backpropagation improve neural network training?",
+    "ideal_answer": "Backpropagation computes gradients of the loss function and updates model weights to minimize prediction error during training."
+  },
+  {
+    "id": 61,
+    "topic": "tensorflow",
+    "difficulty": "medium",
+    "question": "Why are GPUs useful for training deep learning models?",
+    "ideal_answer": "GPUs accelerate deep learning training by performing highly parallel numerical computations more efficiently than traditional CPUs."
+  },
+  {
+    "id": 62,
+    "topic": "tensorflow",
+    "difficulty": "hard",
+    "question": "Why are computational graphs useful in TensorFlow systems?",
+    "ideal_answer": "Computational graphs organize mathematical operations efficiently, enabling optimized execution, automatic differentiation, and scalable model training."
+  },
+
+  {
+    "id": 63,
+    "topic": "pytorch",
+    "difficulty": "easy",
+    "question": "Why is PyTorch popular in deep learning research?",
+    "ideal_answer": "PyTorch provides dynamic computation graphs and intuitive model development, making experimentation and debugging easier for researchers."
+  },
+  {
+    "id": 64,
+    "topic": "pytorch",
+    "difficulty": "medium",
+    "question": "How does automatic differentiation help in PyTorch training workflows?",
+    "ideal_answer": "Automatic differentiation computes gradients automatically during backpropagation, simplifying neural network optimization."
+  },
+  {
+    "id": 65,
+    "topic": "pytorch",
+    "difficulty": "medium",
+    "question": "Why are DataLoaders important in PyTorch pipelines?",
+    "ideal_answer": "DataLoaders efficiently batch, shuffle, and preprocess datasets during model training, improving training performance and scalability."
+  },
+  {
+    "id": 66,
+    "topic": "pytorch",
+    "difficulty": "hard",
+    "question": "Why are dynamic computation graphs useful in PyTorch systems?",
+    "ideal_answer": "Dynamic graphs allow neural network structures to be modified during runtime, improving flexibility for complex and experimental models."
+  },
+
+  {
+    "id": 67,
+    "topic": "cnn",
+    "difficulty": "easy",
+    "question": "Why are convolutional neural networks effective for image processing tasks?",
+    "ideal_answer": "CNNs automatically learn spatial features from images using convolutional filters, making them highly effective for image-related tasks."
+  },
+  {
+    "id": 68,
+    "topic": "cnn",
+    "difficulty": "medium",
+    "question": "Why is pooling used in convolutional neural networks?",
+    "ideal_answer": "Pooling reduces spatial dimensions and computational complexity while preserving important visual features in feature maps."
+  },
+  {
+    "id": 69,
+    "topic": "cnn",
+    "difficulty": "medium",
+    "question": "How do convolutional filters help CNNs detect patterns in images?",
+    "ideal_answer": "Convolutional filters learn local spatial patterns such as edges and textures by scanning across image regions."
+  },
+  {
+    "id": 70,
+    "topic": "cnn",
+    "difficulty": "hard",
+    "question": "Why can deeper CNN architectures improve image recognition performance?",
+    "ideal_answer": "Deeper CNNs learn increasingly abstract visual representations, enabling more accurate recognition of complex image patterns."
+  },
+
+  {
+    "id": 71,
+    "topic": "computer_vision",
+    "difficulty": "easy",
+    "question": "What problem does object detection solve in computer vision systems?",
+    "ideal_answer": "Object detection identifies and localizes objects within images or video frames using bounding boxes and classification models."
+  },
+  {
+    "id": 72,
+    "topic": "computer_vision",
+    "difficulty": "medium",
+    "question": "How does image augmentation improve deep learning model performance?",
+    "ideal_answer": "Image augmentation increases dataset diversity by applying transformations such as rotation and flipping, helping models generalize better."
+  },
+  {
+    "id": 73,
+    "topic": "computer_vision",
+    "difficulty": "medium",
+    "question": "How does transfer learning improve image classification workflows?",
+    "ideal_answer": "Transfer learning reuses pretrained model knowledge, reducing training time and improving performance on smaller datasets."
+  },
+  {
+    "id": 74,
+    "topic": "computer_vision",
+    "difficulty": "medium",
+    "question": "Why is image preprocessing important in computer vision pipelines?",
+    "ideal_answer": "Image preprocessing improves data consistency and quality through resizing, normalization, and noise reduction before model training."
+  },
+  {
+    "id": 75,
+    "topic": "computer_vision",
+    "difficulty": "hard",
+    "question": "How do residual connections help very deep neural networks?",
+    "ideal_answer": "Residual connections allow gradients to flow more effectively through deep networks, reducing vanishing gradient problems and improving training stability."
+  },
+  {
+    "id": 76,
+    "topic": "computer_vision",
+    "difficulty": "hard",
+    "question": "Why can deep computer vision models require significant computational resources?",
+    "ideal_answer": "Deep vision models process large image tensors and contain millions of parameters, requiring substantial memory and parallel computation."
+  },
+  {
+    "id": 77,
+    "topic": "apis",
     "difficulty": "easy",
     "question": "Why are REST APIs important in modern web applications?",
     "ideal_answer": "REST APIs enable structured communication between frontend and backend systems using standardized HTTP methods and stateless interactions."
   },
   {
-    "id": 50,
+    "id": 78,
+    "topic": "apis",
+    "difficulty": "medium",
+    "question": "Why can poor API design reduce system scalability and maintainability?",
+    "ideal_answer": "Poor API design creates inconsistent interfaces, tight coupling, and inefficient communication patterns that become difficult to scale and maintain."
+  },
+  {
+    "id": 79,
+    "topic": "apis",
+    "difficulty": "medium",
+    "question": "How does CORS improve browser security?",
+    "ideal_answer": "CORS restricts cross-origin requests and controls which external domains can access server resources from browsers."
+  },
+  {
+    "id": 80,
+    "topic": "apis",
+    "difficulty": "hard",
+    "question": "Why are stateless APIs easier to scale?",
+    "ideal_answer": "Stateless APIs avoid storing client session information on the server, making horizontal scaling and distributed deployment simpler."
+  },
+
+  {
+    "id": 81,
     "topic": "web_development",
     "difficulty": "medium",
     "question": "How does client-side rendering differ from server-side rendering?",
     "ideal_answer": "Client-side rendering generates content in the browser using JavaScript, while server-side rendering generates HTML on the server before sending it to the client."
   },
   {
-    "id": 51,
+    "id": 82,
     "topic": "web_development",
     "difficulty": "medium",
     "question": "Why is authentication necessary in web applications?",
     "ideal_answer": "Authentication verifies user identity and prevents unauthorized access to protected resources and application features."
   },
   {
-    "id": 52,
-    "topic": "web_development",
-    "difficulty": "hard",
-    "question": "Why can poor API design reduce system scalability and maintainability?",
-    "ideal_answer": "Poor API design creates inconsistent interfaces, tight coupling, and inefficient communication patterns that become difficult to scale and maintain."
-  },
-  {
-    "id": 53,
-    "topic": "web_development",
-    "difficulty": "medium",
-    "question": "How does CORS improve browser security?",
-    "ideal_answer": "CORS restricts cross-origin requests and controls which external domains can access server resources from browsers."
-  },
-  {
-    "id": 54,
+    "id": 83,
     "topic": "web_development",
     "difficulty": "easy",
     "question": "What is the difference between cookies and sessions?",
     "ideal_answer": "Cookies store small pieces of data in the browser, while sessions store user-related data on the server and use session identifiers for tracking."
   },
   {
-    "id": 55,
-    "topic": "web_development",
-    "difficulty": "medium",
-    "question": "Why is state management important in large frontend applications?",
-    "ideal_answer": "State management helps maintain predictable data flow and consistent UI behavior across complex frontend components."
-  },
-  {
-    "id": 56,
+    "id": 84,
     "topic": "web_development",
     "difficulty": "hard",
     "question": "What trade-offs exist between monolithic and microservices architectures?",
     "ideal_answer": "Monoliths simplify deployment and development initially, while microservices improve scalability and service independence but increase operational complexity."
   },
+
   {
-    "id": 57,
-    "topic": "java_python",
+    "id": 85,
+    "topic": "react",
     "difficulty": "easy",
-    "question": "Why are exception handling mechanisms important in programming languages?",
+    "question": "Why does React use a virtual DOM?",
+    "ideal_answer": "React uses a virtual DOM to efficiently detect UI changes and minimize expensive direct DOM updates."
+  },
+  {
+    "id": 86,
+    "topic": "react",
+    "difficulty": "medium",
+    "question": "How do React hooks improve component design?",
+    "ideal_answer": "React hooks allow state and lifecycle logic to be reused in functional components without class-based implementations."
+  },
+  {
+    "id": 87,
+    "topic": "react",
+    "difficulty": "medium",
+    "question": "Why is state management important in large React applications?",
+    "ideal_answer": "State management helps maintain predictable data flow and consistent UI behavior across complex frontend components."
+  },
+  {
+    "id": 88,
+    "topic": "react",
+    "difficulty": "hard",
+    "question": "Why can unnecessary re-renders reduce React application performance?",
+    "ideal_answer": "Unnecessary re-renders increase DOM reconciliation work and computational overhead, reducing UI responsiveness and efficiency."
+  },
+  {
+    "id": 89,
+    "topic": "react",
+    "difficulty": "medium",
+    "question": "How does component reusability improve frontend architecture?",
+    "ideal_answer": "Reusable components reduce duplicated logic, improve maintainability, and create more scalable frontend systems."
+  },
+
+  {
+    "id": 90,
+    "topic": "fastapi",
+    "difficulty": "easy",
+    "question": "Why is FastAPI popular for backend API development?",
+    "ideal_answer": "FastAPI provides high performance, automatic validation, async support, and automatic API documentation generation."
+  },
+  {
+    "id": 91,
+    "topic": "fastapi",
+    "difficulty": "medium",
+    "question": "Why are asynchronous endpoints useful in FastAPI applications?",
+    "ideal_answer": "Asynchronous endpoints allow FastAPI servers to efficiently handle multiple concurrent I/O-bound requests."
+  },
+  {
+    "id": 92,
+    "topic": "fastapi",
+    "difficulty": "medium",
+    "question": "How does Pydantic improve data validation in FastAPI?",
+    "ideal_answer": "Pydantic validates request and response data using typed schemas, improving API reliability and developer productivity."
+  },
+  {
+    "id": 93,
+    "topic": "fastapi",
+    "difficulty": "hard",
+    "question": "Why can asynchronous programming improve backend scalability?",
+    "ideal_answer": "Asynchronous programming prevents blocking during I/O operations, allowing servers to process more concurrent requests efficiently."
+  },
+
+  {
+    "id": 94,
+    "topic": "flask",
+    "difficulty": "easy",
+    "question": "Why is Flask considered a lightweight backend framework?",
+    "ideal_answer": "Flask provides minimal built-in abstractions, allowing developers to selectively integrate libraries and design flexible backend architectures."
+  },
+  {
+    "id": 95,
+    "topic": "flask",
+    "difficulty": "medium",
+    "question": "How do Flask extensions improve backend development workflows?",
+    "ideal_answer": "Flask extensions add reusable functionality such as authentication, ORM integration, and database management without modifying core framework behavior."
+  },
+  {
+    "id": 96,
+    "topic": "flask",
+    "difficulty": "hard",
+    "question": "What trade-offs exist between Flask and larger backend frameworks?",
+    "ideal_answer": "Flask offers flexibility and simplicity, while larger frameworks provide more built-in tools and architectural conventions."
+  },
+
+  {
+    "id": 97,
+    "topic": "javascript",
+    "difficulty": "easy",
+    "question": "How does event bubbling work in JavaScript?",
+    "ideal_answer": "Event bubbling propagates events from child elements upward through parent elements in the DOM hierarchy."
+  },
+  {
+    "id": 98,
+    "topic": "javascript",
+    "difficulty": "medium",
+    "question": "Why are closures useful in JavaScript applications?",
+    "ideal_answer": "Closures allow functions to retain access to variables from their lexical scope even after the outer function has finished execution."
+  },
+  {
+    "id": 99,
+    "topic": "javascript",
+    "difficulty": "medium",
+    "question": "How does asynchronous execution improve JavaScript application responsiveness?",
+    "ideal_answer": "Asynchronous execution prevents blocking operations from freezing the main thread, improving user interaction and responsiveness."
+  },
+  {
+    "id": 100,
+    "topic": "javascript",
+    "difficulty": "hard",
+    "question": "Why can improper state mutation create bugs in JavaScript applications?",
+    "ideal_answer": "Improper state mutation can create unpredictable side effects and inconsistent application behavior due to shared mutable data."
+  },
+
+  {
+    "id": 101,
+    "topic": "typescript",
+    "difficulty": "easy",
+    "question": "Why is TypeScript useful in large-scale frontend applications?",
+    "ideal_answer": "TypeScript improves maintainability and reliability through static typing, early error detection, and better tooling support."
+  },
+  {
+    "id": 102,
+    "topic": "typescript",
+    "difficulty": "medium",
+    "question": "How do interfaces improve code quality in TypeScript?",
+    "ideal_answer": "Interfaces define consistent object structures and improve maintainability through stronger type contracts."
+  },
+  {
+    "id": 103,
+    "topic": "typescript",
+    "difficulty": "hard",
+    "question": "Why can static typing reduce runtime bugs in frontend applications?",
+    "ideal_answer": "Static typing detects type inconsistencies during development, preventing many runtime errors before deployment."
+  },
+
+  {
+    "id": 104,
+    "topic": "tailwind_css",
+    "difficulty": "easy",
+    "question": "Why is Tailwind CSS popular in modern frontend development?",
+    "ideal_answer": "Tailwind CSS enables rapid UI development through reusable utility classes and consistent design systems."
+  },
+  {
+    "id": 105,
+    "topic": "tailwind_css",
+    "difficulty": "medium",
+    "question": "How do utility-first CSS frameworks improve frontend scalability?",
+    "ideal_answer": "Utility-first frameworks reduce repetitive styling patterns and improve consistency across large frontend codebases."
+  },
+
+  {
+    "id": 106,
+    "topic": "html",
+    "difficulty": "easy",
+    "question": "Why is semantic HTML important for modern web development?",
+    "ideal_answer": "Semantic HTML improves accessibility, SEO, and maintainability by providing meaningful document structure."
+  },
+  {
+    "id": 107,
+    "topic": "html",
+    "difficulty": "medium",
+    "question": "How do forms enable interaction in web applications?",
+    "ideal_answer": "Forms collect and submit user input to backend systems, enabling interactive and data-driven web functionality."
+  },
+  {
+    "id": 108,
+    "topic": "html",
+    "difficulty": "hard",
+    "question": "Why is accessibility important in frontend development?",
+    "ideal_answer": "Accessibility ensures web applications can be effectively used by people with disabilities across different devices and assistive technologies."
+  },
+
+  {
+    "id": 109,
+    "topic": "css",
+    "difficulty": "easy",
+    "question": "How does Flexbox simplify responsive layout design?",
+    "ideal_answer": "Flexbox provides flexible alignment and spacing controls, making responsive UI layouts easier to implement and maintain."
+  },
+  {
+    "id": 110,
+    "topic": "css",
+    "difficulty": "medium",
+    "question": "Why are CSS media queries important in responsive design?",
+    "ideal_answer": "Media queries adapt layouts and styling based on screen size and device characteristics, improving cross-device usability."
+  },
+  {
+    "id": 111,
+    "topic": "css",
+    "difficulty": "hard",
+    "question": "How can excessive CSS complexity negatively impact frontend maintainability?",
+    "ideal_answer": "Excessive CSS complexity creates difficult-to-manage style dependencies, increasing debugging difficulty and reducing scalability."
+  },
+  {
+    "id": 112,
+    "topic": "python",
+    "difficulty": "easy",
+    "question": "Why are exception handling mechanisms important in Python applications?",
     "ideal_answer": "Exception handling prevents abrupt program termination and enables graceful error recovery during runtime failures."
   },
   {
-    "id": 58,
-    "topic": "java_python",
-    "difficulty": "medium",
-    "question": "How does garbage collection improve memory management?",
-    "ideal_answer": "Garbage collection automatically frees unused memory, reducing memory leaks and simplifying resource management for developers."
-  },
-  {
-    "id": 59,
-    "topic": "java_python",
+    "id": 113,
+    "topic": "python",
     "difficulty": "medium",
     "question": "Why are Python decorators useful in software design?",
     "ideal_answer": "Decorators allow reusable behavior to be added to functions or methods without modifying their core implementation."
   },
   {
-    "id": 60,
-    "topic": "java_python",
-    "difficulty": "hard",
-    "question": "What challenges can arise in multithreaded programming?",
-    "ideal_answer": "Multithreaded systems can face race conditions, deadlocks, synchronization complexity, and inconsistent shared resource access."
+    "id": 114,
+    "topic": "python",
+    "difficulty": "medium",
+    "question": "How does dynamic typing differ from static typing in Python?",
+    "ideal_answer": "Dynamic typing determines variable types at runtime, enabling flexible coding patterns without explicit type declarations."
   },
   {
-    "id": 61,
-    "topic": "java_python",
+    "id": 115,
+    "topic": "python",
+    "difficulty": "medium",
+    "question": "Why are generators useful in Python applications?",
+    "ideal_answer": "Generators produce values lazily, reducing memory usage and improving efficiency when processing large datasets."
+  },
+  {
+    "id": 116,
+    "topic": "python",
+    "difficulty": "hard",
+    "question": "How does Python's Global Interpreter Lock affect multithreaded programs?",
+    "ideal_answer": "The Global Interpreter Lock allows only one thread to execute Python bytecode at a time, limiting CPU-bound multithreading performance."
+  },
+  {
+    "id": 117,
+    "topic": "python",
+    "difficulty": "medium",
+    "question": "Why are virtual environments important in Python development?",
+    "ideal_answer": "Virtual environments isolate project dependencies, preventing package conflicts between different Python applications."
+  },
+  {
+    "id": 118,
+    "topic": "python",
+    "difficulty": "easy",
+    "question": "How do list comprehensions improve Python code readability?",
+    "ideal_answer": "List comprehensions provide concise syntax for generating lists, improving readability and reducing repetitive looping code."
+  },
+  {
+    "id": 119,
+    "topic": "python",
+    "difficulty": "hard",
+    "question": "Why can improper resource management lead to performance issues in Python applications?",
+    "ideal_answer": "Improper resource management can cause memory leaks, excessive CPU usage, file handle exhaustion, and degraded application performance over time."
+  },
+  {
+    "id": 120,
+    "topic": "python",
+    "difficulty": "medium",
+    "question": "How does asynchronous programming improve scalability in Python backend systems?",
+    "ideal_answer": "Asynchronous programming allows Python applications to handle multiple I/O-bound tasks concurrently without blocking execution."
+  },
+  {
+    "id": 121,
+    "topic": "python",
+    "difficulty": "hard",
+    "question": "Why is modular code organization important in large Python projects?",
+    "ideal_answer": "Modular organization improves maintainability, reusability, testing, and scalability by separating responsibilities into structured components."
+  },
+
+  {
+    "id": 122,
+    "topic": "java",
+    "difficulty": "easy",
+    "question": "How does garbage collection improve memory management in Java?",
+    "ideal_answer": "Garbage collection automatically frees unused memory, reducing memory leaks and simplifying resource management for developers."
+  },
+  {
+    "id": 123,
+    "topic": "java",
     "difficulty": "medium",
     "question": "How do Java interfaces differ from abstract classes?",
     "ideal_answer": "Interfaces define behavioral contracts without implementation state, while abstract classes can provide both partial implementation and shared state."
   },
   {
-    "id": 62,
-    "topic": "java_python",
+    "id": 124,
+    "topic": "java",
     "difficulty": "easy",
-    "question": "Why are collections frameworks important in programming languages?",
+    "question": "Why are collections frameworks important in Java applications?",
     "ideal_answer": "Collections frameworks provide efficient reusable data structures and algorithms for managing groups of objects."
   },
   {
-    "id": 63,
-    "topic": "java_python",
-    "difficulty": "medium",
-    "question": "How does dynamic typing differ from static typing?",
-    "ideal_answer": "Dynamic typing determines variable types at runtime, while static typing checks types during compilation before execution."
+    "id": 125,
+    "topic": "java",
+    "difficulty": "hard",
+    "question": "What challenges can arise in multithreaded Java applications?",
+    "ideal_answer": "Multithreaded systems can face race conditions, deadlocks, synchronization complexity, and inconsistent shared resource access."
   },
   {
-    "id": 64,
-    "topic": "java_python",
+    "id": 126,
+    "topic": "java",
+    "difficulty": "medium",
+    "question": "Why is the JVM important in Java systems?",
+    "ideal_answer": "The JVM enables platform-independent execution by running compiled Java bytecode consistently across different operating systems."
+  },
+  {
+    "id": 127,
+    "topic": "java",
+    "difficulty": "medium",
+    "question": "How does method overriding support runtime polymorphism in Java?",
+    "ideal_answer": "Method overriding allows subclass implementations to replace parent behavior dynamically during runtime based on object type."
+  },
+  {
+    "id": 128,
+    "topic": "java",
+    "difficulty": "easy",
+    "question": "Why are access modifiers important in Java class design?",
+    "ideal_answer": "Access modifiers control visibility and encapsulation, improving security and maintainability in object-oriented systems."
+  },
+  {
+    "id": 129,
+    "topic": "java",
     "difficulty": "hard",
-    "question": "Why can improper resource management lead to performance issues in applications?",
-    "ideal_answer": "Improper resource management can cause memory leaks, excessive CPU usage, file handle exhaustion, and degraded system performance over time."
+    "question": "Why can excessive object creation reduce Java application performance?",
+    "ideal_answer": "Excessive object creation increases garbage collection overhead and memory allocation costs, reducing runtime efficiency."
+  },
+  {
+    "id": 130,
+    "topic": "java",
+    "difficulty": "medium",
+    "question": "How do synchronized blocks improve thread safety in Java?",
+    "ideal_answer": "Synchronized blocks prevent concurrent access to shared resources, reducing race conditions and inconsistent state changes."
+  },
+  {
+    "id": 131,
+    "topic": "java",
+    "difficulty": "hard",
+    "question": "Why is loose coupling important in large Java applications?",
+    "ideal_answer": "Loose coupling reduces dependencies between components, improving maintainability, scalability, and ease of testing."
+  },
+
+  {
+    "id": 132,
+    "topic": "c++",
+    "difficulty": "easy",
+    "question": "Why are pointers important in C++ programming?",
+    "ideal_answer": "Pointers provide direct memory access and enable efficient dynamic memory management and low-level system operations."
+  },
+  {
+    "id": 133,
+    "topic": "c++",
+    "difficulty": "medium",
+    "question": "How does RAII improve resource management in C++?",
+    "ideal_answer": "RAII binds resource lifetime to object lifetime, ensuring automatic cleanup and reducing memory leaks."
+  },
+  {
+    "id": 134,
+    "topic": "c++",
+    "difficulty": "medium",
+    "question": "Why are templates useful in C++ systems?",
+    "ideal_answer": "Templates enable generic programming by allowing reusable type-independent implementations without sacrificing performance."
+  },
+  {
+    "id": 135,
+    "topic": "c++",
+    "difficulty": "hard",
+    "question": "Why can manual memory management introduce bugs in C++ applications?",
+    "ideal_answer": "Manual memory management can cause memory leaks, dangling pointers, and undefined behavior if resources are not handled carefully."
+  },
+  {
+    "id": 136,
+    "topic": "c++",
+    "difficulty": "medium",
+    "question": "How does the Standard Template Library improve C++ development productivity?",
+    "ideal_answer": "The STL provides efficient reusable containers and algorithms, reducing development complexity and improving code reliability."
+  },
+  {
+    "id": 137,
+    "topic": "c++",
+    "difficulty": "hard",
+    "question": "Why are move semantics important in modern C++?",
+    "ideal_answer": "Move semantics reduce unnecessary copying and improve performance by transferring ownership of resources efficiently."
+  },
+
+  {
+    "id": 138,
+    "topic": "c",
+    "difficulty": "easy",
+    "question": "Why is memory management important in C programming?",
+    "ideal_answer": "Proper memory management prevents leaks, corruption, and undefined behavior in low-level applications."
+  },
+  {
+    "id": 139,
+    "topic": "c",
+    "difficulty": "medium",
+    "question": "How do pointers enable efficient programming in C?",
+    "ideal_answer": "Pointers provide direct memory access, enabling efficient manipulation of arrays, structures, and dynamic memory."
+  },
+  {
+    "id": 140,
+    "topic": "c",
+    "difficulty": "medium",
+    "question": "Why are header files important in C projects?",
+    "ideal_answer": "Header files organize declarations and enable modular code reuse across multiple source files."
+  },
+  {
+    "id": 141,
+    "topic": "c",
+    "difficulty": "hard",
+    "question": "Why can buffer overflows create security vulnerabilities in C applications?",
+    "ideal_answer": "Buffer overflows overwrite adjacent memory regions, potentially causing crashes, corruption, or arbitrary code execution."
+  },
+
+  {
+    "id": 142,
+    "topic": "c#",
+    "difficulty": "easy",
+    "question": "Why is C# commonly used for enterprise application development?",
+    "ideal_answer": "C# provides strong object-oriented features, managed memory, and extensive .NET ecosystem support for enterprise systems."
+  },
+  {
+    "id": 143,
+    "topic": "c#",
+    "difficulty": "medium",
+    "question": "How does garbage collection improve reliability in C# applications?",
+    "ideal_answer": "Garbage collection automatically reclaims unused memory, reducing memory leaks and simplifying application development."
+  },
+  {
+    "id": 144,
+    "topic": "c#",
+    "difficulty": "medium",
+    "question": "Why are properties preferred over public fields in C# design?",
+    "ideal_answer": "Properties provide controlled access to object state while supporting validation and encapsulation."
+  },
+  {
+    "id": 145,
+    "topic": "c#",
+    "difficulty": "hard",
+    "question": "Why is asynchronous programming important in modern C# backend systems?",
+    "ideal_answer": "Asynchronous programming improves scalability and responsiveness by preventing blocking during long-running I/O operations."
+  },
+
+  {
+    "id": 146,
+    "topic": "php",
+    "difficulty": "easy",
+    "question": "Why is PHP widely used in server-side web development?",
+    "ideal_answer": "PHP simplifies backend web development through easy server integration, dynamic content generation, and broad hosting support."
+  },
+  {
+    "id": 147,
+    "topic": "php",
+    "difficulty": "medium",
+    "question": "How do sessions help maintain user state in PHP applications?",
+    "ideal_answer": "Sessions store user-related data across multiple requests, enabling persistent authentication and personalized interactions."
+  },
+  {
+    "id": 148,
+    "topic": "php",
+    "difficulty": "hard",
+    "question": "Why can poor input validation create security risks in PHP applications?",
+    "ideal_answer": "Improper input validation can enable attacks such as SQL injection and cross-site scripting, compromising application security."
+  },
+
+  {
+    "id": 149,
+    "topic": "rust",
+    "difficulty": "easy",
+    "question": "Why is Rust considered a memory-safe systems programming language?",
+    "ideal_answer": "Rust enforces ownership and borrowing rules at compile time, preventing many common memory safety issues without garbage collection."
+  },
+  {
+    "id": 150,
+    "topic": "rust",
+    "difficulty": "medium",
+    "question": "How does Rust's ownership model improve reliability?",
+    "ideal_answer": "The ownership model ensures safe memory access and prevents data races by enforcing strict compile-time borrowing rules."
+  },
+  {
+    "id": 151,
+    "topic": "rust",
+    "difficulty": "hard",
+    "question": "Why is concurrency considered safer in Rust systems?",
+    "ideal_answer": "Rust prevents many concurrency-related bugs through compile-time checks that enforce safe shared memory access."
+  },
+
+  {
+    "id": 152,
+    "topic": "kotlin",
+    "difficulty": "easy",
+    "question": "Why is Kotlin popular for Android application development?",
+    "ideal_answer": "Kotlin provides concise syntax, null safety, and strong interoperability with Java, improving Android development productivity."
+  },
+  {
+    "id": 153,
+    "topic": "kotlin",
+    "difficulty": "medium",
+    "question": "How does null safety improve reliability in Kotlin applications?",
+    "ideal_answer": "Null safety reduces runtime null pointer exceptions by enforcing safer handling of nullable values during compilation."
+  },
+  {
+    "id": 154,
+    "topic": "kotlin",
+    "difficulty": "hard",
+    "question": "Why do Kotlin coroutines improve asynchronous programming workflows?",
+    "ideal_answer": "Coroutines simplify asynchronous programming by enabling lightweight concurrent execution with more readable and maintainable code."
+  },
+  {
+    "id": 155,
+    "topic": "sql",
+    "difficulty": "easy",
+    "question": "Why is SQL widely used in relational database systems?",
+    "ideal_answer": "SQL provides a standardized language for querying, managing, and manipulating structured relational data efficiently."
+  },
+  {
+    "id": 156,
+    "topic": "sql",
+    "difficulty": "medium",
+    "question": "How do JOIN operations combine data across relational tables?",
+    "ideal_answer": "JOIN operations retrieve related data by matching rows across tables using common key relationships."
+  },
+  {
+    "id": 157,
+    "topic": "sql",
+    "difficulty": "medium",
+    "question": "Why are aggregate functions important in SQL queries?",
+    "ideal_answer": "Aggregate functions summarize data efficiently by performing calculations such as counts, averages, sums, and maximum values."
+  },
+  {
+    "id": 158,
+    "topic": "sql",
+    "difficulty": "hard",
+    "question": "Why can poorly optimized SQL queries reduce database performance?",
+    "ideal_answer": "Poorly optimized queries increase unnecessary scans, resource usage, and execution time, negatively impacting database scalability."
+  },
+  {
+    "id": 159,
+    "topic": "sql",
+    "difficulty": "medium",
+    "question": "How do indexes improve SQL query execution speed?",
+    "ideal_answer": "Indexes reduce search complexity by enabling faster lookup of rows without scanning entire tables."
+  },
+  {
+    "id": 160,
+    "topic": "sql",
+    "difficulty": "hard",
+    "question": "Why are stored procedures useful in database-driven systems?",
+    "ideal_answer": "Stored procedures encapsulate reusable database logic, improving performance, security, and maintainability."
+  },
+
+  {
+    "id": 161,
+    "topic": "mysql",
+    "difficulty": "easy",
+    "question": "Why is MySQL popular in web application development?",
+    "ideal_answer": "MySQL provides reliable relational storage, strong performance, and broad compatibility with modern web technologies."
+  },
+  {
+    "id": 162,
+    "topic": "mysql",
+    "difficulty": "medium",
+    "question": "How does indexing improve performance in MySQL databases?",
+    "ideal_answer": "Indexes reduce the amount of scanned data during queries, improving retrieval speed and database responsiveness."
+  },
+  {
+    "id": 163,
+    "topic": "mysql",
+    "difficulty": "medium",
+    "question": "Why are transactions important in MySQL systems?",
+    "ideal_answer": "Transactions ensure reliable execution of grouped database operations while preserving consistency during failures."
+  },
+  {
+    "id": 164,
+    "topic": "mysql",
+    "difficulty": "hard",
+    "question": "Why can excessive joins reduce MySQL query performance?",
+    "ideal_answer": "Excessive joins increase computational complexity and data scanning overhead, slowing query execution."
+  },
+
+  {
+    "id": 165,
+    "topic": "postgresql",
+    "difficulty": "easy",
+    "question": "Why is PostgreSQL widely used in scalable backend systems?",
+    "ideal_answer": "PostgreSQL provides strong reliability, extensibility, advanced querying capabilities, and robust transactional support."
+  },
+  {
+    "id": 166,
+    "topic": "postgresql",
+    "difficulty": "medium",
+    "question": "How does PostgreSQL support advanced relational data operations?",
+    "ideal_answer": "PostgreSQL supports complex queries, indexing strategies, transactions, and extensible data types for advanced relational workloads."
+  },
+  {
+    "id": 167,
+    "topic": "postgresql",
+    "difficulty": "medium",
+    "question": "Why are JSON data types useful in PostgreSQL systems?",
+    "ideal_answer": "JSON support enables flexible semi-structured data storage while preserving relational database functionality."
+  },
+  {
+    "id": 168,
+    "topic": "postgresql",
+    "difficulty": "hard",
+    "question": "Why is MVCC important in PostgreSQL concurrency control?",
+    "ideal_answer": "MVCC allows concurrent transactions to operate efficiently without excessive locking by maintaining multiple row versions."
+  },
+
+  {
+    "id": 169,
+    "topic": "mongodb",
+    "difficulty": "easy",
+    "question": "Why is MongoDB considered a NoSQL database system?",
+    "ideal_answer": "MongoDB stores flexible document-based data structures instead of fixed relational tables, enabling schema flexibility."
+  },
+  {
+    "id": 170,
+    "topic": "mongodb",
+    "difficulty": "medium",
+    "question": "How does document-based storage improve flexibility in MongoDB?",
+    "ideal_answer": "Document storage allows variable data structures without rigid schemas, improving adaptability for evolving applications."
+  },
+  {
+    "id": 171,
+    "topic": "mongodb",
+    "difficulty": "medium",
+    "question": "Why is horizontal scaling important in MongoDB systems?",
+    "ideal_answer": "Horizontal scaling distributes data across multiple servers, improving scalability and handling large workloads efficiently."
+  },
+  {
+    "id": 172,
+    "topic": "mongodb",
+    "difficulty": "hard",
+    "question": "What trade-offs exist between relational databases and MongoDB systems?",
+    "ideal_answer": "Relational databases provide strong consistency and structured schemas, while MongoDB offers flexibility and easier horizontal scalability."
+  },
+
+  {
+    "id": 173,
+    "topic": "sqlite",
+    "difficulty": "easy",
+    "question": "Why is SQLite commonly used in lightweight applications?",
+    "ideal_answer": "SQLite is serverless, lightweight, and easy to embed, making it suitable for mobile apps and small-scale systems."
+  },
+  {
+    "id": 174,
+    "topic": "sqlite",
+    "difficulty": "medium",
+    "question": "How does SQLite simplify local application data storage?",
+    "ideal_answer": "SQLite stores entire databases in a single file, simplifying deployment and local persistence management."
+  },
+
+  {
+    "id": 175,
+    "topic": "oracle",
+    "difficulty": "easy",
+    "question": "Why is Oracle Database widely used in enterprise systems?",
+    "ideal_answer": "Oracle provides high reliability, scalability, advanced security, and enterprise-grade database management capabilities."
+  },
+  {
+    "id": 176,
+    "topic": "oracle",
+    "difficulty": "hard",
+    "question": "Why are high-availability features important in Oracle database systems?",
+    "ideal_answer": "High-availability features minimize downtime and ensure reliable access to critical enterprise data during failures."
+  },
+  {
+    "id": 177,
+    "topic": "docker",
+    "difficulty": "easy",
+    "question": "Why is Docker useful in modern software development workflows?",
+    "ideal_answer": "Docker provides isolated and reproducible environments, simplifying application deployment and dependency management."
+  },
+  {
+    "id": 178,
+    "topic": "docker",
+    "difficulty": "medium",
+    "question": "How do Docker containers differ from virtual machines?",
+    "ideal_answer": "Containers share the host operating system kernel and are lighter than virtual machines, which require separate guest operating systems."
+  },
+  {
+    "id": 179,
+    "topic": "docker",
+    "difficulty": "medium",
+    "question": "Why are Docker images important in containerized systems?",
+    "ideal_answer": "Docker images package applications and dependencies into portable, reusable units for consistent deployment."
+  },
+  {
+    "id": 180,
+    "topic": "docker",
+    "difficulty": "hard",
+    "question": "Why can container orchestration become important in large-scale deployments?",
+    "ideal_answer": "Container orchestration automates scaling, networking, and management of distributed containers across infrastructure."
+  },
+  {
+    "id": 181,
+    "topic": "docker",
+    "difficulty": "hard",
+    "question": "Why does containerization improve deployment consistency?",
+    "ideal_answer": "Containerization ensures applications run with identical environments across development, testing, and production systems."
+  },
+
+  {
+    "id": 182,
+    "topic": "git",
+    "difficulty": "easy",
+    "question": "Why is version control important in software development?",
+    "ideal_answer": "Version control tracks code changes, enables collaboration, and prevents accidental loss of development history."
+  },
+  {
+    "id": 183,
+    "topic": "git",
+    "difficulty": "medium",
+    "question": "How do Git branches improve collaborative development workflows?",
+    "ideal_answer": "Branches isolate feature development and experimentation without affecting the main codebase."
+  },
+  {
+    "id": 184,
+    "topic": "git",
+    "difficulty": "medium",
+    "question": "Why are commits important in Git repositories?",
+    "ideal_answer": "Commits create traceable checkpoints of code changes, improving collaboration and debugging."
+  },
+  {
+    "id": 185,
+    "topic": "git",
+    "difficulty": "hard",
+    "question": "Why can merge conflicts occur in collaborative Git workflows?",
+    "ideal_answer": "Merge conflicts occur when multiple developers modify overlapping sections of code differently before integration."
+  },
+  {
+    "id": 186,
+    "topic": "git",
+    "difficulty": "hard",
+    "question": "How does rebasing differ from merging in Git workflows?",
+    "ideal_answer": "Rebasing rewrites commit history into a linear sequence, while merging preserves branch history through merge commits."
+  },
+
+  {
+    "id": 187,
+    "topic": "github",
+    "difficulty": "easy",
+    "question": "Why is GitHub widely used in collaborative software projects?",
+    "ideal_answer": "GitHub provides hosted Git repositories, collaboration tools, pull requests, and project management integrations."
+  },
+  {
+    "id": 188,
+    "topic": "github",
+    "difficulty": "medium",
+    "question": "How do pull requests improve code quality in GitHub workflows?",
+    "ideal_answer": "Pull requests enable code review, discussion, and validation before integrating changes into shared repositories."
+  },
+  {
+    "id": 189,
+    "topic": "github",
+    "difficulty": "hard",
+    "question": "Why are GitHub Actions useful in CI/CD workflows?",
+    "ideal_answer": "GitHub Actions automate testing, deployment, and development workflows directly within GitHub repositories."
+  },
+
+  {
+    "id": 190,
+    "topic": "linux",
+    "difficulty": "easy",
+    "question": "Why is Linux widely used in backend and server environments?",
+    "ideal_answer": "Linux provides stability, scalability, security, and strong support for server-side infrastructure and development tools."
+  },
+  {
+    "id": 191,
+    "topic": "linux",
+    "difficulty": "medium",
+    "question": "How do file permissions improve security in Linux systems?",
+    "ideal_answer": "File permissions restrict access to resources, preventing unauthorized reading, modification, or execution."
+  },
+  {
+    "id": 192,
+    "topic": "linux",
+    "difficulty": "medium",
+    "question": "Why are shell commands important in Linux development workflows?",
+    "ideal_answer": "Shell commands enable efficient system management, automation, scripting, and server operations."
+  },
+  {
+    "id": 193,
+    "topic": "linux",
+    "difficulty": "hard",
+    "question": "Why are process management tools important in Linux systems?",
+    "ideal_answer": "Process management tools monitor and control running applications, improving system stability and troubleshooting."
+  },
+  {
+    "id": 194,
+    "topic": "linux",
+    "difficulty": "hard",
+    "question": "How does piping improve command-line productivity in Linux?",
+    "ideal_answer": "Piping allows command outputs to be chained together, enabling efficient processing and automation workflows."
+  },
+
+  {
+    "id": 195,
+    "topic": "deployment",
+    "difficulty": "easy",
+    "question": "Why is deployment automation important in modern software systems?",
+    "ideal_answer": "Deployment automation reduces manual errors and enables faster, more reliable application releases."
+  },
+  {
+    "id": 196,
+    "topic": "deployment",
+    "difficulty": "medium",
+    "question": "How do environment variables improve deployment security?",
+    "ideal_answer": "Environment variables separate sensitive configuration data from source code, improving security and flexibility."
+  },
+  {
+    "id": 197,
+    "topic": "deployment",
+    "difficulty": "medium",
+    "question": "Why is monitoring important in deployed backend systems?",
+    "ideal_answer": "Monitoring helps detect failures, performance bottlenecks, and unusual behavior in production environments."
+  },
+  {
+    "id": 198,
+    "topic": "deployment",
+    "difficulty": "hard",
+    "question": "Why can improper deployment strategies cause downtime in production systems?",
+    "ideal_answer": "Improper deployments can introduce breaking changes, service interruptions, and inconsistent application states."
+  },
+
+  {
+    "id": 199,
+    "topic": "vercel",
+    "difficulty": "easy",
+    "question": "Why is Vercel popular for frontend application deployment?",
+    "ideal_answer": "Vercel simplifies frontend deployment with automatic builds, global CDN delivery, and seamless Git integration."
+  },
+  {
+    "id": 200,
+    "topic": "vercel",
+    "difficulty": "medium",
+    "question": "How do preview deployments improve frontend development workflows on Vercel?",
+    "ideal_answer": "Preview deployments allow developers to test and review changes before merging them into production."
+  },
+
+  {
+    "id": 201,
+    "topic": "render",
+    "difficulty": "easy",
+    "question": "Why is Render useful for deploying full-stack applications?",
+    "ideal_answer": "Render simplifies deployment of backend services, databases, and static sites through managed cloud infrastructure."
+  },
+  {
+    "id": 202,
+    "topic": "render",
+    "difficulty": "medium",
+    "question": "How do managed deployment platforms reduce infrastructure complexity?",
+    "ideal_answer": "Managed platforms automate server provisioning, scaling, networking, and deployment configuration."
+  },
+
+  {
+    "id": 203,
+    "topic": "postman",
+    "difficulty": "easy",
+    "question": "Why is Postman useful in API development workflows?",
+    "ideal_answer": "Postman simplifies API testing, debugging, and validation through interactive request and response management."
+  },
+  {
+    "id": 204,
+    "topic": "postman",
+    "difficulty": "medium",
+    "question": "How do API collections improve testing workflows in Postman?",
+    "ideal_answer": "Collections organize reusable API requests, enabling efficient testing and collaboration across development teams."
+  },
+  {
+    "id": 205,
+    "topic": "postman",
+    "difficulty": "hard",
+    "question": "Why is automated API testing important in backend development?",
+    "ideal_answer": "Automated API testing improves reliability by detecting regressions and validating backend behavior consistently."
+  },
+  {
+    "id": 206,
+    "topic": "aws",
+    "difficulty": "easy",
+    "question": "Why is AWS widely used in cloud-based application deployment?",
+    "ideal_answer": "AWS provides scalable cloud infrastructure, managed services, and global availability for modern application deployment."
+  },
+  {
+    "id": 207,
+    "topic": "aws",
+    "difficulty": "medium",
+    "question": "How do cloud storage services improve scalability in AWS systems?",
+    "ideal_answer": "Cloud storage services provide elastic, distributed storage that scales dynamically based on application demand."
+  },
+  {
+    "id": 208,
+    "topic": "aws",
+    "difficulty": "hard",
+    "question": "Why is auto-scaling important in cloud infrastructure?",
+    "ideal_answer": "Auto-scaling adjusts computing resources dynamically based on workload demand, improving reliability and cost efficiency."
+  },
+
+  {
+    "id": 209,
+    "topic": "microsoft_azure",
+    "difficulty": "easy",
+    "question": "Why is Microsoft Azure commonly used in enterprise cloud environments?",
+    "ideal_answer": "Azure provides scalable cloud services, enterprise integrations, and strong support for Microsoft-based ecosystems."
+  },
+  {
+    "id": 210,
+    "topic": "microsoft_azure",
+    "difficulty": "medium",
+    "question": "How do managed cloud services simplify backend infrastructure on Azure?",
+    "ideal_answer": "Managed services reduce operational overhead by handling deployment, scaling, monitoring, and maintenance automatically."
+  },
+  {
+    "id": 211,
+    "topic": "microsoft_azure",
+    "difficulty": "hard",
+    "question": "Why is cloud redundancy important in enterprise systems?",
+    "ideal_answer": "Cloud redundancy improves fault tolerance and minimizes downtime by distributing services across multiple infrastructure zones."
+  },
+
+  {
+    "id": 212,
+    "topic": "gcp",
+    "difficulty": "easy",
+    "question": "Why is Google Cloud Platform widely used for scalable backend systems?",
+    "ideal_answer": "GCP provides scalable infrastructure, global networking, and managed cloud services optimized for modern applications."
+  },
+  {
+    "id": 213,
+    "topic": "gcp",
+    "difficulty": "medium",
+    "question": "How do managed Kubernetes services improve deployment workflows on GCP?",
+    "ideal_answer": "Managed Kubernetes services automate orchestration, scaling, and cluster management for containerized applications."
+  },
+  {
+    "id": 214,
+    "topic": "gcp",
+    "difficulty": "hard",
+    "question": "Why are distributed cloud systems important for modern web applications?",
+    "ideal_answer": "Distributed cloud systems improve scalability, reliability, and geographic availability across global user bases."
+  },
+
+  {
+    "id": 215,
+    "topic": "firebase",
+    "difficulty": "easy",
+    "question": "Why is Firebase popular for rapid application development?",
+    "ideal_answer": "Firebase provides managed backend services such as authentication, databases, and hosting with minimal configuration."
+  },
+  {
+    "id": 216,
+    "topic": "firebase",
+    "difficulty": "medium",
+    "question": "How does Firebase simplify authentication workflows in web applications?",
+    "ideal_answer": "Firebase provides built-in authentication systems that support multiple providers and reduce backend implementation complexity."
+  },
+  {
+    "id": 217,
+    "topic": "firebase",
+    "difficulty": "hard",
+    "question": "Why can real-time databases improve responsiveness in frontend applications?",
+    "ideal_answer": "Real-time databases synchronize updates instantly across connected clients, improving live user interaction."
+  },
+
+  {
+    "id": 218,
+    "topic": "supabase",
+    "difficulty": "easy",
+    "question": "Why is Supabase considered an alternative to Firebase?",
+    "ideal_answer": "Supabase provides open-source backend services with PostgreSQL support, authentication, and real-time functionality."
+  },
+  {
+    "id": 219,
+    "topic": "supabase",
+    "difficulty": "medium",
+    "question": "How does Supabase combine relational databases with backend services?",
+    "ideal_answer": "Supabase integrates PostgreSQL databases with authentication, APIs, and real-time features in a unified platform."
+  },
+  {
+    "id": 220,
+    "topic": "supabase",
+    "difficulty": "hard",
+    "question": "Why are backend-as-a-service platforms useful in modern development workflows?",
+    "ideal_answer": "Backend-as-a-service platforms reduce infrastructure complexity and accelerate application development."
+  },
+
+  {
+    "id": 221,
+    "topic": "cloud_computing",
+    "difficulty": "easy",
+    "question": "Why is cloud computing important in modern software systems?",
+    "ideal_answer": "Cloud computing provides scalable, on-demand computing resources without requiring physical infrastructure management."
+  },
+  {
+    "id": 222,
+    "topic": "cloud_computing",
+    "difficulty": "medium",
+    "question": "How does elasticity improve efficiency in cloud environments?",
+    "ideal_answer": "Elasticity allows cloud systems to dynamically scale resources based on workload demand."
+  },
+  {
+    "id": 223,
+    "topic": "cloud_computing",
+    "difficulty": "hard",
+    "question": "Why can distributed cloud systems improve application reliability?",
+    "ideal_answer": "Distributed cloud systems reduce single points of failure and improve fault tolerance across infrastructure regions."
+  },
+
+  {
+    "id": 224,
+    "topic": "jwt",
+    "difficulty": "easy",
+    "question": "Why are JWTs commonly used in authentication systems?",
+    "ideal_answer": "JWTs provide compact, stateless authentication tokens that securely transmit user identity information."
+  },
+  {
+    "id": 225,
+    "topic": "jwt",
+    "difficulty": "medium",
+    "question": "How do JWTs support stateless authentication workflows?",
+    "ideal_answer": "JWTs store encoded authentication data within tokens, reducing the need for server-side session storage."
+  },
+  {
+    "id": 226,
+    "topic": "jwt",
+    "difficulty": "hard",
+    "question": "Why can improper JWT handling create security vulnerabilities?",
+    "ideal_answer": "Improper JWT validation or storage can expose authentication tokens and allow unauthorized system access."
+  },
+
+  {
+    "id": 227,
+    "topic": "oauth",
+    "difficulty": "easy",
+    "question": "Why is OAuth widely used in modern authentication systems?",
+    "ideal_answer": "OAuth enables secure third-party authorization without exposing user credentials directly to applications."
+  },
+  {
+    "id": 228,
+    "topic": "oauth",
+    "difficulty": "medium",
+    "question": "How does OAuth improve security in third-party integrations?",
+    "ideal_answer": "OAuth limits application access through scoped authorization tokens instead of sharing passwords."
+  },
+  {
+    "id": 229,
+    "topic": "oauth",
+    "difficulty": "hard",
+    "question": "Why are authorization scopes important in OAuth systems?",
+    "ideal_answer": "Authorization scopes restrict application permissions and reduce security risks from excessive access privileges."
+  },
+
+  {
+    "id": 230,
+    "topic": "cybersecurity",
+    "difficulty": "easy",
+    "question": "Why is cybersecurity important in modern software systems?",
+    "ideal_answer": "Cybersecurity protects applications, infrastructure, and user data from unauthorized access and malicious attacks."
+  },
+  {
+    "id": 231,
+    "topic": "cybersecurity",
+    "difficulty": "medium",
+    "question": "How does encryption improve security in web applications?",
+    "ideal_answer": "Encryption protects sensitive information by converting data into unreadable formats without authorized decryption keys."
+  },
+  {
+    "id": 232,
+    "topic": "cybersecurity",
+    "difficulty": "hard",
+    "question": "Why can improper input validation create major security vulnerabilities?",
+    "ideal_answer": "Improper validation can allow attacks such as SQL injection, cross-site scripting, and unauthorized system access."
+  },
+
+  {
+    "id": 233,
+    "topic": "nodejs",
+    "difficulty": "easy",
+    "question": "Why is Node.js popular for backend web development?",
+    "ideal_answer": "Node.js enables scalable backend development using JavaScript with asynchronous, event-driven execution."
+  },
+  {
+    "id": 234,
+    "topic": "nodejs",
+    "difficulty": "medium",
+    "question": "How does Node.js handle concurrent requests efficiently?",
+    "ideal_answer": "Node.js uses an event loop and non-blocking I/O operations to process multiple concurrent requests efficiently."
+  },
+  {
+    "id": 235,
+    "topic": "nodejs",
+    "difficulty": "hard",
+    "question": "Why are asynchronous operations important in Node.js systems?",
+    "ideal_answer": "Asynchronous operations prevent blocking execution and improve scalability for I/O-intensive backend workloads."
+  },
+
+  {
+    "id": 236,
+    "topic": "express",
+    "difficulty": "easy",
+    "question": "Why is Express commonly used with Node.js applications?",
+    "ideal_answer": "Express simplifies backend routing, middleware integration, and API development for Node.js applications."
+  },
+  {
+    "id": 237,
+    "topic": "express",
+    "difficulty": "medium",
+    "question": "How does middleware improve flexibility in Express applications?",
+    "ideal_answer": "Middleware enables reusable request processing logic such as authentication, logging, and validation."
+  },
+  {
+    "id": 238,
+    "topic": "express",
+    "difficulty": "hard",
+    "question": "Why is routing architecture important in large Express backend systems?",
+    "ideal_answer": "Structured routing improves maintainability, scalability, and separation of concerns in backend applications."
+  },
+
+  {
+    "id": 239,
+    "topic": "redis",
+    "difficulty": "easy",
+    "question": "Why is Redis commonly used in high-performance backend systems?",
+    "ideal_answer": "Redis provides fast in-memory data storage for caching, session management, and real-time applications."
+  },
+  {
+    "id": 240,
+    "topic": "redis",
+    "difficulty": "medium",
+    "question": "How does caching improve backend application performance?",
+    "ideal_answer": "Caching reduces repeated database access by temporarily storing frequently requested data in fast-access memory."
+  },
+  {
+    "id": 241,
+    "topic": "redis",
+    "difficulty": "hard",
+    "question": "Why are in-memory databases useful for real-time systems?",
+    "ideal_answer": "In-memory databases provide extremely low-latency data access required for real-time processing workloads."
+  },
+
+  {
+    "id": 242,
+    "topic": "websockets",
+    "difficulty": "easy",
+    "question": "Why are WebSockets useful in real-time web applications?",
+    "ideal_answer": "WebSockets enable persistent bidirectional communication between clients and servers with low latency."
+  },
+  {
+    "id": 243,
+    "topic": "websockets",
+    "difficulty": "medium",
+    "question": "How do WebSockets differ from traditional HTTP communication?",
+    "ideal_answer": "WebSockets maintain continuous two-way communication channels, unlike stateless request-response HTTP interactions."
+  },
+  {
+    "id": 244,
+    "topic": "websockets",
+    "difficulty": "hard",
+    "question": "Why are persistent connections important in real-time collaborative systems?",
+    "ideal_answer": "Persistent connections reduce communication overhead and enable instant synchronization between connected clients."
+  },
+  {
+    "id": 245,
+    "topic": "rest",
+    "difficulty": "easy",
+    "question": "Why are REST principles important in backend API design?",
+    "ideal_answer": "REST principles standardize communication between systems using stateless requests and resource-based architecture."
+  },
+  {
+    "id": 246,
+    "topic": "rest",
+    "difficulty": "medium",
+    "question": "How do HTTP methods improve REST API organization?",
+    "ideal_answer": "HTTP methods define standardized actions such as retrieval, creation, updating, and deletion of resources."
+  },
+  {
+    "id": 247,
+    "topic": "rest",
+    "difficulty": "hard",
+    "question": "Why is stateless communication important in REST systems?",
+    "ideal_answer": "Stateless communication improves scalability and simplifies distributed system management by avoiding server-side session dependency."
+  },
+
+  {
+    "id": 248,
+    "topic": "json",
+    "difficulty": "easy",
+    "question": "Why is JSON widely used in web applications?",
+    "ideal_answer": "JSON provides a lightweight and human-readable format for structured data exchange between systems."
+  },
+  {
+    "id": 249,
+    "topic": "json",
+    "difficulty": "medium",
+    "question": "How does JSON simplify frontend and backend communication?",
+    "ideal_answer": "JSON enables structured data serialization and easy parsing across different programming environments."
+  },
+  {
+    "id": 250,
+    "topic": "json",
+    "difficulty": "hard",
+    "question": "Why can inconsistent JSON structures create integration issues in APIs?",
+    "ideal_answer": "Inconsistent JSON schemas can cause parsing failures, validation errors, and unreliable communication between services."
   }
 ]

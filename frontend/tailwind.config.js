@@ -5,8 +5,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['"DM Sans"', "sans-serif"],
-        mono: ['"JetBrains Mono"', "monospace"],
-        display: ['"Syne"', "sans-serif"],
+        mono: ['"Geist Mono"', "monospace"],
+        display: ['"Plus Jakarta Sans"', "sans-serif"],
       },
       colors: {
         surface: {
