@@ -31,7 +31,7 @@ _ML_ROOT = Path(__file__).resolve().parent.parent.parent.parent.parent / "ml"
 if str(_ML_ROOT) not in sys.path:
     sys.path.insert(0, str(_ML_ROOT))
 
-from training.dataset_loader import load_question_bank  # noqa: E402
+from ml.training.dataset_loader import load_question_bank  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # Skill → topic mapping

@@ -7,6 +7,10 @@ import { UploadPage } from "./pages/UploadPage";
 import { ResultsPage } from "./pages/ResultsPage";
 import { InterviewPage } from "./pages/InterviewPage";
 
+import { PrivacyPage } from "./pages/PrivacyPage";
+import { TermsPage } from "./pages/TermsPage";
+import { DisclaimerPage } from "./pages/DisclaimerPage";
+
 import type { ResumeAnalysisResponse } from "./types/analysis.types";
 
 function App() {
@@ -40,6 +44,36 @@ function App() {
           element={
             <AppLayout activeNav="AI Interview" fullWidth>
               <InterviewPage extractedSkills={result?.extracted_skills ?? []} />
+            </AppLayout>
+          }
+        />
+
+        {/* Privacy Policy */}
+        <Route
+          path="/privacy"
+          element={
+            <AppLayout>
+              <PrivacyPage />
+            </AppLayout>
+          }
+        />
+
+        {/* Terms */}
+        <Route
+          path="/terms"
+          element={
+            <AppLayout>
+              <TermsPage />
+            </AppLayout>
+          }
+        />
+
+        {/* AI Disclaimer */}
+        <Route
+          path="/disclaimer"
+          element={
+            <AppLayout>
+              <DisclaimerPage />
             </AppLayout>
           }
         />

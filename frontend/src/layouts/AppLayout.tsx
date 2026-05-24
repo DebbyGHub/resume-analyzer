@@ -6,6 +6,8 @@
  * Presentational only — no routing, no auth, no backend calls.
  */
 
+import { Footer } from "./Footer";
+
 import { Link } from "react-router-dom";
 
 interface NavItem {
@@ -86,6 +88,7 @@ export function AppLayout({
       <main className={fullWidth ? "" : "mx-auto max-w-6xl px-6 py-8"}>
         {children}
       </main>
+      <Footer />
     </div>
   );
 }
