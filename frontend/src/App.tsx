@@ -43,7 +43,13 @@ function App() {
           path="/interview"
           element={
             <AppLayout activeNav="AI Interview" fullWidth>
-              <InterviewPage extractedSkills={result?.extracted_skills ?? []} />
+              <InterviewPage
+                extractedSkills={result?.extracted_skills ?? []}
+                jobTitle={result?.job_title}
+                companyName={result?.company_name}
+                matchedKeywords={result?.matched_keywords ?? []}
+                missingKeywords={result?.missing_keywords ?? []}
+              />
             </AppLayout>
           }
         />

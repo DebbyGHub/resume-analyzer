@@ -194,6 +194,21 @@ def _resolve_topics(
 
     return resolved
 
+def _resolve_job_title_topics(
+    job_title: str,
+) -> list[str]:
+
+    title = job_title.lower()
+
+    matched: list[str] = []
+
+    for skill, topic in SKILL_TOPIC_MAP.items():
+
+        if skill in title and topic not in matched:
+            matched.append(topic)
+
+    return matched
+
 # ---------------------------------------------------------------------------
 
 def _group_by_difficulty(
@@ -287,6 +302,7 @@ def _fill_remaining_questions(
 
 def select_interview_questions(
     skills: Optional[list[str]] = None,
+    job_title: Optional[str] = None,
     limit: int = 10,
 ) -> list[dict]:
     """
@@ -298,6 +314,9 @@ def select_interview_questions(
 
         limit:
             Number of interview questions.
+        
+        job_title:
+        Target role entered in the analyzer.
 
     Returns:
         List of question dicts.
@@ -325,6 +344,17 @@ def select_interview_questions(
     # -----------------------------------------------------------------------
 
     matched_topics = _resolve_topics(skills)
+
+    if job_title:
+
+        title_topics = _resolve_job_title_topics(
+            job_title
+        )
+
+        for topic in title_topics:
+
+            if topic not in matched_topics:
+                matched_topics.append(topic)
 
     matched_questions = [
         q

@@ -3,6 +3,12 @@ from pydantic import BaseModel, field_validator
 
 from backend.app.ml.evaluation.answer_quality import evaluate_answer
 
+from typing import Optional
+
+from backend.app.ml.interview.question_selector import (
+    select_interview_questions,
+)
+
 router = APIRouter()
 
 
@@ -28,6 +34,12 @@ class AnswerEvaluationResponse(BaseModel):
     final_score:      float
     quality:          str
     flags:            list[str]
+
+
+
+class InterviewStartRequest(BaseModel):
+    skills: Optional[list[str]] = None
+    limit: int = 10
 
 
 # ---------------------------------------------------------------------------
@@ -58,3 +70,23 @@ def evaluate_interview_answer(
         ) from exc
 
     return AnswerEvaluationResponse(**result)
+
+
+@router.post(
+    "/start-interview",
+    summary="Start a resume-aware interview",
+)
+def start_interview(
+    request: InterviewStartRequest,
+):
+
+    questions = select_interview_questions(
+        skills=request.skills,
+        limit=request.limit,
+    )
+
+    return {
+        "skills_used": request.skills,
+        "question_count": len(questions),
+        "questions": questions,
+    }

@@ -111,11 +111,15 @@ function buildSummary(
 
 interface InterviewPageProps {
   extractedSkills: string[];
+
+  jobTitle?: string;
+  companyName?: string | null;
+
+  matchedKeywords?: string[];
+  missingKeywords?: string[];
 }
 
-export function InterviewPage({
-  extractedSkills,
-}: InterviewPageProps) {
+export function InterviewPage({ extractedSkills }: InterviewPageProps) {
   const [questions, setQuestions] = useState<InterviewQuestion[]>([]);
   const [questionsLoading, setQuestionsLoading] = useState(true);
 
@@ -129,16 +133,25 @@ export function InterviewPage({
 
   const [loading, setLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
-
+  
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const currentQuestion = questions[questionIndex];
+
+  const hasSkills = extractedSkills.length > 0;
+
+  const [showIntro, setShowIntro] = useState(hasSkills);
 
   const isLastQuestion = questionIndex === questions.length - 1;
 
   // ── Load questions from backend ────────────────────────────────
 
   useEffect(() => {
+    if (!hasSkills) {
+      setQuestionsLoading(false);
+      return;
+    }
+
     async function loadQuestions() {
       const response = await getInterviewQuestions(extractedSkills);
 
@@ -150,22 +163,11 @@ export function InterviewPage({
 
       setQuestions(response.data);
 
-      if (response.data.length > 0) {
-        setMessages([
-          {
-            id: uid(),
-            role: "ai",
-            content: response.data[0].question,
-            timestamp: now(),
-          },
-        ]);
-      }
-
       setQuestionsLoading(false);
     }
 
     loadQuestions();
-  }, []);
+  }, [hasSkills, extractedSkills]);
 
   // ── Auto-scroll ────────────────────────────────────────────────
 
@@ -256,6 +258,20 @@ export function InterviewPage({
     );
   }
 
+  if (!hasSkills) {
+    return (
+      <div className="min-h-screen bg-surface-base flex items-center justify-center">
+        <div className="max-w-xl text-center px-6">
+          <h1 className="text-3xl font-semibold mb-4">Resume Required</h1>
+
+          <p className="text-text-muted text-lg">
+            Upload your resume first to begin a personalized AI interview.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   // ── Empty state ────────────────────────────────────────────────
 
   if (questions.length === 0) {
@@ -285,6 +301,60 @@ export function InterviewPage({
     );
   }
 
+  if (showIntro) {
+    return (
+      <div className="min-h-screen bg-surface-base flex items-center justify-center px-6">
+        <div className="max-w-2xl w-full rounded-3xl border border-white/10 bg-white/5 p-10">
+          <h1 className="text-4xl font-semibold mb-4">
+            Personalized Technical Interview
+          </h1>
+
+          <p className="text-text-muted text-lg mb-8">
+            Your interview questions were generated based on skills detected in
+            your resume.
+          </p>
+
+          <div className="mb-8">
+            <h2 className="text-sm uppercase tracking-wide text-text-muted mb-4">
+              Interview Focus Areas
+            </h2>
+
+            <div className="flex flex-wrap gap-3">
+              {extractedSkills.slice(0, 8).map((skill) => (
+                <div
+                  key={skill}
+                  className="px-4 py-2 rounded-full bg-white/10 border border-white/10"
+                >
+                  {skill}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button
+            onClick={() => {
+              setShowIntro(false);
+
+              if (questions.length > 0) {
+                setMessages([
+                  {
+                    id: uid(),
+                    role: "ai",
+                    content: questions[0].question,
+                    timestamp: now(),
+                  },
+                ]);
+              }
+            }}
+            className="w-full py-4 rounded-2xl bg-white text-black font-medium hover:opacity-90 transition"
+          >
+            Start Interview
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   // ── Main UI ────────────────────────────────────────────────────
 
   return (
@@ -292,7 +362,7 @@ export function InterviewPage({
       header={
         <SessionHeader
           title="Technical Interview"
-          topic={currentQuestion.topic}
+          topic={currentQuestion?.topic ?? "Interview"}
           currentQuestion={questionIndex + 1}
           totalQuestions={questions.length}
           status="active"
