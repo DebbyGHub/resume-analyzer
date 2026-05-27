@@ -32,6 +32,8 @@ function countLabel(
     return `${counts.education_entries} degree${counts.education_entries === 1 ? "" : "s"}`;
   if (key === "certifications" && counts.certification_entries > 0)
     return `${counts.certification_entries} cert${counts.certification_entries === 1 ? "" : "s"}`;
+  if (key === "skills" && counts.skills_count > 0)
+    return `${counts.skills_count} skill${counts.skills_count === 1 ? "" : "s"}`;
   return null;
 }
 
@@ -87,12 +89,7 @@ export function ResumeSummary({
                     : "bg-surface-raised border border-surface-border opacity-50")
                 }
               >
-                <span
-                  className={
-                    "h-1.5 w-1.5 rounded-full shrink-0 " +
-                    (present ? "bg-score-high" : "bg-text-muted")
-                  }
-                />
+                
                 <div className="min-w-0">
                   <p
                     className={

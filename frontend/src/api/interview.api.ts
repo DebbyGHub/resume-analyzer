@@ -97,15 +97,41 @@ export async function evaluateInterviewAnswer(
  * Fetches the interview question set from the backend.
  * Backend owns question selection and dataset management.
  */
+interface GetInterviewQuestionsParams {
+  skills?: string[];
+  jobTitle?: string;
+  matchedKeywords?: string[];
+  missingKeywords?: string[];
+}
+
 export async function getInterviewQuestions(
-  skills?: string[],
+  params?: GetInterviewQuestionsParams,
 ): Promise<InterviewQuestionsResult> {
   try {
     let url = `${BASE_URL}/questions`;
 
-    if (skills && skills.length > 0) {
-      const query = encodeURIComponent(skills.join(","));
-      url += `?skills=${query}`;
+    const queryParams = new URLSearchParams();
+
+    if (params?.skills?.length) {
+      queryParams.append("skills", params.skills.join(","));
+    }
+
+    if (params?.jobTitle) {
+      queryParams.append("job_title", params.jobTitle);
+    }
+
+    if (params?.matchedKeywords?.length) {
+      queryParams.append("matched_keywords", params.matchedKeywords.join(","));
+    }
+
+    if (params?.missingKeywords?.length) {
+      queryParams.append("missing_keywords", params.missingKeywords.join(","));
+    }
+
+    const queryString = queryParams.toString();
+
+    if (queryString) {
+      url += `?${queryString}`;
     }
 
     const response = await fetch(url);

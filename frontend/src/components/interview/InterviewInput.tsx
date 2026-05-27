@@ -81,6 +81,12 @@ export function InterviewInput({
     el.style.height = `${Math.min(el.scrollHeight, 200)}px`;
   }, [value]);
 
+  useEffect(() => {
+    if (!disabled && !loading) {
+      textareaRef.current?.focus();
+    }
+  }, [disabled, loading]);
+
   // ── Submission guard ─────────────────────────────────────────
   const canSubmit = !disabled && !loading && value.trim().length > 0;
 

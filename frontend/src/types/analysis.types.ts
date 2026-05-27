@@ -33,6 +33,7 @@ export interface SectionCounts {
   project_entries: number;
   education_entries: number;
   certification_entries: number;
+  skills_count: number;
 }
 
 export interface ResumeAnalysisResponse {

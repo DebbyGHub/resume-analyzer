@@ -250,18 +250,163 @@ def _count_education_entries(section_text: Optional[str]) -> int:
 
 
 def _count_certification_entries(section_text: Optional[str]) -> int:
+    """
+    Count likely certification titles.
+    """
+
     if not section_text:
         return 0
-    lines = [ln.strip() for ln in section_text.splitlines() if ln.strip()]
-    cert_lines = [ln for ln in lines if _CERT_ENTRY_RE.search(ln)]
-    # If cert keywords present: count them; else count non-blank lines (1 per entry)
-    return min(len(cert_lines) if cert_lines else len(lines), 20)
 
+    lines = [
+        line.strip()
+        for line in section_text.splitlines()
+        if line.strip()
+    ]
+
+    count = 0
+
+    for line in lines:
+
+        lower = line.lower()
+
+        # Ignore bullets
+        if line.startswith(("-", "•", "*")):
+            continue
+
+        # Ignore links
+        if "http" in lower or "linkedin" in lower:
+            continue
+
+        # Ignore metadata lines
+        if any(
+            keyword in lower
+            for keyword in [
+                "issued",
+                "issuer",
+                "credential",
+                "verify",
+                "completion",
+                "certificate id",
+                "id:",
+            ]
+        ):
+            continue
+
+        # Ignore standalone provider/platform lines
+        if re.fullmatch(r"\(?[A-Za-z\s&.\-]+\)?", line):
+            if any(
+                provider in lower
+                for provider in [
+                    "coursera",
+                    "udemy",
+                    "nptel",
+                    "deeplearning.ai",
+                    "infosys",
+                ]
+            ):
+                continue
+
+        # Ignore very long description lines
+        if len(line.split()) > 10:
+            continue
+
+        count += 1
+
+    return min(count, 20)
+
+def _count_skills(section_text: Optional[str]) -> int:
+    """
+    Count skills from a skills section.
+
+    Supports:
+    - comma-separated lists
+    - pipe-separated lists
+    - newline-separated lists
+    """
+
+    if not section_text:
+        return 0
+
+    normalized = (
+        section_text
+        .replace("|", ",")
+        .replace("\n", ",")
+    )
+
+    skills = [
+        skill.strip()
+        for skill in normalized.split(",")
+        if skill.strip()
+    ]
+
+    return min(len(skills), 100)
+
+def _count_project_entries(section_text: Optional[str]) -> int:
+    """
+    Count likely project titles.
+
+    A project title is assumed to be:
+    - a short standalone line
+    - followed by bullet points or descriptions
+    """
+
+    if not section_text:
+        return 0
+
+    lines = [
+        line.strip()
+        for line in section_text.splitlines()
+        if line.strip()
+    ]
+
+    count = 0
+
+    for i, line in enumerate(lines):
+
+        lower = line.lower()
+
+        # Ignore bullets
+        if line.startswith(("-", "•", "*")):
+            continue
+
+        # Ignore links
+        if "github" in lower or "http" in lower:
+            continue
+
+        # Ignore tech stack/meta lines
+        if any(
+            keyword in lower
+            for keyword in [
+                "tech stack",
+                "technologies",
+                "built with",
+                "using",
+                "frontend",
+                "backend",
+                "live demo",
+                "deployed",
+            ]
+        ):
+            continue
+
+        # Ignore long description lines
+        if len(line.split()) > 6:
+            continue
+
+        # IMPORTANT:
+        # title should usually be followed by bullets/descriptions
+        next_line = lines[i + 1] if i + 1 < len(lines) else ""
+
+        if next_line.startswith(("-", "•", "*")):
+            count += 1
+
+    return min(count, 20)
 
 def compute_section_counts(sections: DetectedSections) -> SectionCounts:
     return SectionCounts(
         experience_entries=_count_entries_by_dates(sections.experience),
-        project_entries=_count_entries_by_dates(sections.projects),
+        project_entries=_count_project_entries(sections.projects),
         education_entries=_count_education_entries(sections.education),
         certification_entries=_count_certification_entries(sections.certifications),
+        skills_count=_count_skills(sections.skills),
     )

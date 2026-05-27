@@ -35,12 +35,9 @@ function FeedbackPanel({ feedback }: { feedback: FeedbackItem[] }) {
           const meta = PRIORITY_ICON[item.priority];
           return (
             <li key={i} className="flex items-start gap-3">
-              <span
-                className={`mt-1 text-xs shrink-0 ${meta.color}`}
-                aria-hidden
-              >
-                {meta.icon}
-              </span>
+              <div
+                className={`mt-1 h-10 w-[2px] rounded-full shrink-0 ${meta.color.replace("text-", "bg-")}`}
+              />
               <div className="flex flex-col gap-0.5">
                 <div className="flex items-center gap-2">
                   <span
@@ -71,10 +68,8 @@ export function ResultsPage({ result, onReset }: ResultsPageProps) {
       <div className="mx-auto max-w-4xl">
         {/* Top bar */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
-          <div className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-accent" />
-
-            <span className="font-mono text-xs text-text-muted tracking-widest uppercase">
+          <div>
+            <span className="font-mono text-xs text-accent tracking-[0.25em] uppercase">
               Analysis Complete
             </span>
           </div>
@@ -83,13 +78,13 @@ export function ResultsPage({ result, onReset }: ResultsPageProps) {
             <Button
               variant="ghost"
               onClick={onReset}
-              className="text-xs px-4 py-2"
+              className="text-xs px-4 py-2 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
             >
               ← New Analysis
             </Button>
 
             <Button
-              className="text-xs px-5 py-2"
+              className="text-xs px-5 py-2 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               onClick={() => {
                 navigate("/interview", {
                   state: {
@@ -146,10 +141,10 @@ export function ResultsPage({ result, onReset }: ResultsPageProps) {
           </div>
         </div>
 
-        <Card className="p-6 mt-4 border border-white/10 bg-white/5">
+        <Card className="relative overflow-hidden p-6 mt-4 border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.03] backdrop-blur-xl">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <h2 className="text-xl font-semibold mb-2">
+              <h2 className="text-2xl font-semibold tracking-tight mb-2">
                 Personalized AI Interview
               </h2>
 
@@ -172,7 +167,7 @@ export function ResultsPage({ result, onReset }: ResultsPageProps) {
                   {result.extracted_skills.slice(0, 8).map((skill) => (
                     <div
                       key={skill}
-                      className="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-sm"
+                      className="px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent backdrop-blur-md text-sm"
                     >
                       {skill}
                     </div>
@@ -193,7 +188,7 @@ export function ResultsPage({ result, onReset }: ResultsPageProps) {
                   },
                 });
               }}
-              className="shrink-0"
+              className="shrink-0 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
             >
               Start AI Interview
             </Button>

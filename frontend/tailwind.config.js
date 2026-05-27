@@ -16,9 +16,9 @@ export default {
           border: "#252a35",
         },
         accent: {
-          DEFAULT: "#f5a623",
-          dim: "#c47d0e",
-          glow: "rgba(245,166,35,0.15)",
+          DEFAULT: "#8B5CF6",
+          dim: "#7C3AED",
+          glow: "rgba(139,92,246,0.18)",
         },
         text: {
           primary: "#e8eaf0",
@@ -26,9 +26,9 @@ export default {
           muted: "#4e5565",
         },
         score: {
-          high: "#34d399",
-          mid: "#fbbf24",
-          low: "#f87171",
+          high: "#4ADE80",
+          mid: "#cfff04",
+          low: "#FB7185",
         },
       },
     },

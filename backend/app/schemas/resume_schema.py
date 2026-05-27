@@ -16,3 +16,4 @@ class SectionCounts(BaseModel):
     project_entries: int = 0
     education_entries: int = 0
     certification_entries: int = 0
+    skills_count: int = 0

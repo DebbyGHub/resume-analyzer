@@ -132,9 +132,8 @@ export function InterviewSummary({
   return (
     <div className="w-full max-w-2xl mx-auto flex flex-col gap-4 px-4 py-6">
       {/* ── Header ─────────────────────────────────────────────── */}
-      <div className="flex items-center gap-2 mb-1">
-        <div className="h-2 w-2 rounded-full bg-accent" />
-        <span className="font-mono text-xs text-text-muted uppercase tracking-widest">
+      <div className="mb-1">
+        <span className="font-mono text-xs text-accent uppercase tracking-[0.25em]">
           Session Complete
         </span>
       </div>

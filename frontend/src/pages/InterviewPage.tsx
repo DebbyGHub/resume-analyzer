@@ -9,6 +9,8 @@ import { SessionHeader } from "../components/interview/SessionHeader";
 import { TypingIndicator } from "../components/interview/TypingIndicator";
 import { InterviewSummary } from "../components/interview/InterviewSummary";
 
+import { useLocation } from "react-router-dom";
+
 import type { QualityBreakdown } from "../components/interview/InterviewSummary";
 
 import {
@@ -109,17 +111,16 @@ function buildSummary(
 
 // ─── InterviewPage ────────────────────────────────────────────────────────────
 
-interface InterviewPageProps {
-  extractedSkills: string[];
 
-  jobTitle?: string;
-  companyName?: string | null;
+export function InterviewPage() {
+  const location = useLocation();
 
-  matchedKeywords?: string[];
-  missingKeywords?: string[];
-}
-
-export function InterviewPage({ extractedSkills }: InterviewPageProps) {
+  const {
+    extractedSkills = [],
+    jobTitle,
+    matchedKeywords = [],
+    missingKeywords = [],
+  } = location.state ?? {};
   const [questions, setQuestions] = useState<InterviewQuestion[]>([]);
   const [questionsLoading, setQuestionsLoading] = useState(true);
 
@@ -133,7 +134,7 @@ export function InterviewPage({ extractedSkills }: InterviewPageProps) {
 
   const [loading, setLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
-  
+
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const currentQuestion = questions[questionIndex];
@@ -153,8 +154,12 @@ export function InterviewPage({ extractedSkills }: InterviewPageProps) {
     }
 
     async function loadQuestions() {
-      const response = await getInterviewQuestions(extractedSkills);
-
+      const response = await getInterviewQuestions({
+        skills: extractedSkills,
+        jobTitle,
+        matchedKeywords,
+        missingKeywords,
+      });
       if (!response.ok) {
         console.error(response.error);
         setQuestionsLoading(false);
@@ -167,7 +172,7 @@ export function InterviewPage({ extractedSkills }: InterviewPageProps) {
     }
 
     loadQuestions();
-  }, [hasSkills, extractedSkills]);
+  }, [hasSkills, extractedSkills, jobTitle, matchedKeywords, missingKeywords]);
 
   // ── Auto-scroll ────────────────────────────────────────────────
 
@@ -304,15 +309,32 @@ export function InterviewPage({ extractedSkills }: InterviewPageProps) {
   if (showIntro) {
     return (
       <div className="min-h-screen bg-surface-base flex items-center justify-center px-6">
-        <div className="max-w-2xl w-full rounded-3xl border border-white/10 bg-white/5 p-10">
-          <h1 className="text-4xl font-semibold mb-4">
-            Personalized Technical Interview
+        <div className="relative overflow-hidden max-w-2xl w-full rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] backdrop-blur-2xl p-10 shadow-xl">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-accent-glow blur-3xl opacity-40" />
+
+            <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-violet-500/10 blur-3xl opacity-30" />
+          </div>
+          <h1 className="text-5xl font-semibold tracking-tight mb-4">
+            AI Technical Interview
           </h1>
 
-          <p className="text-text-muted text-lg mb-8">
-            Your interview questions were generated based on skills detected in
-            your resume.
+          <p className="text-text-secondary text-lg leading-relaxed mb-8 max-w-xl">
+            Your interview has been personalized using your resume, target role,
+            and technical profile.
           </p>
+
+          {jobTitle && (
+            <div className="mb-8">
+              <div className="text-xs uppercase tracking-[0.2em] text-text-muted mb-2">
+                Target Role
+              </div>
+
+              <div className="inline-flex items-center rounded-full border border-accent/20 bg-accent/10 px-4 py-2 text-accent font-medium">
+                {jobTitle}
+              </div>
+            </div>
+          )}
 
           <div className="mb-8">
             <h2 className="text-sm uppercase tracking-wide text-text-muted mb-4">
@@ -320,10 +342,10 @@ export function InterviewPage({ extractedSkills }: InterviewPageProps) {
             </h2>
 
             <div className="flex flex-wrap gap-3">
-              {extractedSkills.slice(0, 8).map((skill) => (
+              {extractedSkills.slice(0, 8).map((skill: string) => (
                 <div
                   key={skill}
-                  className="px-4 py-2 rounded-full bg-white/10 border border-white/10"
+                  className="px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent backdrop-blur-md"
                 >
                   {skill}
                 </div>
@@ -346,7 +368,7 @@ export function InterviewPage({ extractedSkills }: InterviewPageProps) {
                 ]);
               }
             }}
-            className="w-full py-4 rounded-2xl bg-white text-black font-medium hover:opacity-90 transition"
+            className="w-full py-4 rounded-2xl bg-accent text-white font-medium shadow-lg hover:shadow-xl hover:scale-[1.01] transition-all duration-300"
           >
             Start Interview
           </button>

@@ -91,19 +91,20 @@ export function ScoreCard({
       {/* Mode badge */}
       <span
         className={
-          "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-mono font-medium " +
+          "inline-flex items-center rounded-full px-3 py-1 text-xs font-mono font-medium border " +
           (mode === "ats"
-            ? "bg-accent/10 text-accent border border-accent/30"
-            : "bg-surface-border text-text-secondary border border-surface-border")
+            ? "bg-accent/10 text-accent border-accent/30"
+            : "bg-surface-border text-text-secondary border-surface-border")
         }
       >
         <span
           className={
-            "h-1.5 w-1.5 rounded-full " +
-            (mode === "ats" ? "bg-accent" : "bg-text-muted")
+            "font-mono uppercase tracking-[0.2em] " +
+            (mode === "ats" ? "text-accent" : "text-text-muted")
           }
-        />
-        {mode === "ats" ? "ATS Mode" : "Job Title Mode"}
+        >
+          {mode === "ats" ? "ATS Mode" : "Job Title Mode"}
+        </span>
       </span>
     </div>
   );
