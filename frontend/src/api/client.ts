@@ -2,7 +2,9 @@ import axios, { AxiosError } from "axios";
 import type { ApiError } from "../types/analysis.types";
 
 export const client = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000",
+  baseURL:
+    import.meta.env.VITE_API_BASE_URL ??
+    "https://resume-analyzer-6v9w.onrender.com",
   timeout: 60_000, // PDF parsing can take a moment
 });
 
