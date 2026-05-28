@@ -1,5 +1,15 @@
 # Resume Analyzer & AI Interview Platform
 
+## Live Demo
+
+Frontend: https://resume-analyzer-six-flax.vercel.app
+
+Backend API: https://resume-analyzer-6v9w.onrender.com
+
+---
+
+# Overview
+
 An AI-powered resume analysis and interview preparation platform built using React, FastAPI, and TensorFlow-based semantic evaluation.
 
 This project analyzes resumes, evaluates ATS compatibility, extracts skills and sections, identifies missing keywords, and generates personalized technical interview questions tailored to the candidate’s resume and target role.
