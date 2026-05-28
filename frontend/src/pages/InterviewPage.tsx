@@ -112,14 +112,27 @@ function buildSummary(
 // ─── InterviewPage ────────────────────────────────────────────────────────────
 
 
-export function InterviewPage() {
+interface InterviewPageProps {
+  extractedSkills: string[];
+  jobTitle?: string;
+  companyName?: string;
+  matchedKeywords: string[];
+  missingKeywords: string[];
+}
+
+export function InterviewPage({
+  extractedSkills: propExtractedSkills,
+  jobTitle: propJobTitle,
+  matchedKeywords: propMatchedKeywords,
+  missingKeywords: propMissingKeywords,
+}: InterviewPageProps) {
   const location = useLocation();
 
   const {
-    extractedSkills = [],
-    jobTitle,
-    matchedKeywords = [],
-    missingKeywords = [],
+    extractedSkills = propExtractedSkills ?? [],
+    jobTitle = propJobTitle,
+    matchedKeywords = propMatchedKeywords ?? [],
+    missingKeywords = propMissingKeywords ?? [],
   } = location.state ?? {};
   const [questions, setQuestions] = useState<InterviewQuestion[]>([]);
   const [questionsLoading, setQuestionsLoading] = useState(true);
