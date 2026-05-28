@@ -45,8 +45,8 @@ function App() {
             <AppLayout activeNav="AI Interview" fullWidth>
               <InterviewPage
                 extractedSkills={result?.extracted_skills ?? []}
-                jobTitle={result?.job_title}
-                companyName={result?.company_name}
+                jobTitle={result?.job_title ?? undefined}
+                companyName={result?.company_name ?? undefined}
                 matchedKeywords={result?.matched_keywords ?? []}
                 missingKeywords={result?.missing_keywords ?? []}
               />
