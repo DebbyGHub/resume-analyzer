@@ -50,19 +50,6 @@ function PlaceholderHeader() {
   );
 }
 
-function PlaceholderQuestion() {
-  return (
-    <div className="px-6 py-5 border-b border-surface-border bg-surface-raised/50">
-      <p className="text-xs font-mono text-text-muted uppercase tracking-widest mb-2">
-        Current Question
-      </p>
-      <p className="text-base font-display font-semibold text-text-primary leading-snug">
-        How does encapsulation improve software maintainability?
-      </p>
-    </div>
-  );
-}
-
 function PlaceholderMessages() {
   return (
     <div className="flex flex-col gap-4 px-6 py-6">
